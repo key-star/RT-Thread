@@ -38,6 +38,7 @@
 .\objects\msh_file.o: ..\components\drivers\include\rtdevice.h
 .\objects\msh_file.o: ..\components\drivers\include\ipc/poll.h
 .\objects\msh_file.o: ..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\msh_file.o: ..\components\drivers\include\drivers/rtc.h
 .\objects\msh_file.o: ..\components\drivers\include\drivers/spi.h
 .\objects\msh_file.o: ..\components\drivers\include\drivers/serial.h
 .\objects\msh_file.o: ..\components\drivers\include\drivers/pin.h

@@ -29,6 +29,7 @@
 .\objects\dataqueue.o: ..\components\drivers\include\rtdevice.h
 .\objects\dataqueue.o: ..\components\drivers\include\ipc/poll.h
 .\objects\dataqueue.o: ..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\dataqueue.o: ..\components\drivers\include\drivers/rtc.h
 .\objects\dataqueue.o: ..\components\drivers\include\drivers/spi.h
 .\objects\dataqueue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\dataqueue.o: ..\components\drivers\include\drivers/serial.h

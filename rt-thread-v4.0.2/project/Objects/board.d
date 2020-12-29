@@ -70,6 +70,7 @@
 .\objects\board.o: ..\components\drivers\include\rtdevice.h
 .\objects\board.o: ..\components\drivers\include\ipc/poll.h
 .\objects\board.o: ..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\board.o: ..\components\drivers\include\drivers/rtc.h
 .\objects\board.o: ..\components\drivers\include\drivers/spi.h
 .\objects\board.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\board.o: ..\components\drivers\include\drivers/serial.h

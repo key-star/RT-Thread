@@ -33,6 +33,7 @@
 .\objects\dfs_file.o: ..\components\drivers\include\rtdevice.h
 .\objects\dfs_file.o: ..\components\drivers\include\ipc/poll.h
 .\objects\dfs_file.o: ..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\dfs_file.o: ..\components\drivers\include\drivers/rtc.h
 .\objects\dfs_file.o: ..\components\drivers\include\drivers/spi.h
 .\objects\dfs_file.o: ..\components\drivers\include\drivers/serial.h
 .\objects\dfs_file.o: ..\components\drivers\include\drivers/pin.h

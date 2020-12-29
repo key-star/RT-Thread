@@ -29,6 +29,7 @@
 .\objects\main.o: ..\components\drivers\include\rtdevice.h
 .\objects\main.o: ..\components\drivers\include\ipc/poll.h
 .\objects\main.o: ..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\main.o: ..\components\drivers\include\drivers/rtc.h
 .\objects\main.o: ..\components\drivers\include\drivers/spi.h
 .\objects\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\main.o: ..\components\drivers\include\drivers/serial.h

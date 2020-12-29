@@ -34,6 +34,7 @@
 .\objects\mount_table.o: ..\components\drivers\include\rtdevice.h
 .\objects\mount_table.o: ..\components\drivers\include\ipc/poll.h
 .\objects\mount_table.o: ..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\mount_table.o: ..\components\drivers\include\drivers/rtc.h
 .\objects\mount_table.o: ..\components\drivers\include\drivers/spi.h
 .\objects\mount_table.o: ..\components\drivers\include\drivers/serial.h
 .\objects\mount_table.o: ..\components\drivers\include\drivers/pin.h

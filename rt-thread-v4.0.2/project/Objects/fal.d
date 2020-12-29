@@ -72,6 +72,7 @@
 .\objects\fal.o: ..\components\drivers\include\rtdevice.h
 .\objects\fal.o: ..\components\drivers\include\ipc/poll.h
 .\objects\fal.o: ..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\fal.o: ..\components\drivers\include\drivers/rtc.h
 .\objects\fal.o: ..\components\drivers\include\drivers/spi.h
 .\objects\fal.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\fal.o: ..\components\drivers\include\drivers/serial.h

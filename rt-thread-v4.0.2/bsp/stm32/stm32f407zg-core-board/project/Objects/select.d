@@ -33,9 +33,11 @@
 .\objects\select.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\select.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\select.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\select.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\select.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\select.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\select.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\select.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\select.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\select.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\select.o: ..\..\..\..\components\dfs\include\dfs_fs.h
 .\objects\select.o: ..\..\..\..\components\dfs\include\dfs_posix.h

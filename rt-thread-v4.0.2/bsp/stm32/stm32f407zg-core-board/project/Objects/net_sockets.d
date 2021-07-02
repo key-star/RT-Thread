@@ -33,9 +33,11 @@
 .\objects\net_sockets.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\net_sockets.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\net_sockets.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\net_sockets.o: ..\..\..\..\components\dfs\include\dfs_file.h
 .\objects\net_sockets.o: ..\..\..\..\components\dfs\include\dfs_fs.h

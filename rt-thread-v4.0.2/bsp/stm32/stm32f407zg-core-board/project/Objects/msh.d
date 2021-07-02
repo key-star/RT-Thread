@@ -39,8 +39,10 @@
 .\objects\msh.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\msh.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\msh.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\msh.o: ..\..\..\..\components\dfs\include\dfs_fs.h

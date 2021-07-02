@@ -45,6 +45,8 @@
 .\objects\drv_gpio.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h
 .\objects\drv_gpio.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h
 .\objects\drv_gpio.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h
+.\objects\drv_gpio.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sdram.h
+.\objects\drv_gpio.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fmc.h
 .\objects\drv_gpio.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\drv_gpio.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
 .\objects\drv_gpio.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
@@ -60,7 +62,6 @@
 .\objects\drv_gpio.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\drv_gpio.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\drv_gpio.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\drv_gpio.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\drv_gpio.o: ..\..\..\..\components\drivers\include\drivers/serial.h
 .\objects\drv_gpio.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\drv_gpio.o: ..\..\libraries\HAL_Drivers\drv_gpio.h

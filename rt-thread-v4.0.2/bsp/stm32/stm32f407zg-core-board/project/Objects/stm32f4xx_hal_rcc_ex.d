@@ -22,9 +22,12 @@
 .\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h
 .\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h
 .\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h
+.\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_crc.h
 .\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h
 .\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h
 .\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h
+.\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sram.h
+.\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fsmc.h
 .\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
 .\objects\stm32f4xx_hal_rcc_ex.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h

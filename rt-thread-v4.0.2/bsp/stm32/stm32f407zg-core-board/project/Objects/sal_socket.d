@@ -36,10 +36,12 @@
 .\objects\sal_socket.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\sal_socket.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\sal_socket.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\sal_socket.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\sal_socket.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\sal_socket.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\sal_socket.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\sal_socket.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\sal_socket.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\sal_socket.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\sal_socket.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\sal_socket.o: ..\..\..\..\components\dfs\include\dfs_file.h
 .\objects\sal_socket.o: ..\..\..\..\components\dfs\include\dfs.h

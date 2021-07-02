@@ -20,8 +20,3 @@
 .\objects\mem.o: ..\..\..\..\kernel\include\rtm.h
 .\objects\mem.o: ..\..\..\..\kernel\include\rtthread.h
 .\objects\mem.o: ..\..\..\..\components\finsh\finsh_api.h
-.\objects\mem.o: ..\..\..\..\components\finsh\finsh.h
-.\objects\mem.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\mem.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
-.\objects\mem.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\mem.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

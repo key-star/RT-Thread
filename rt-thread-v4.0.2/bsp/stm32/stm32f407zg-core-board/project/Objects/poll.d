@@ -30,10 +30,12 @@
 .\objects\poll.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\poll.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\poll.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\poll.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\poll.o: ..\..\..\..\components\dfs\include\dfs.h
 .\objects\poll.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

@@ -30,6 +30,5 @@
 .\objects\waitqueue.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\waitqueue.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\waitqueue.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\waitqueue.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\waitqueue.o: ..\..\..\..\components\drivers\include\drivers/serial.h
 .\objects\waitqueue.o: ..\..\..\..\components\drivers\include\drivers/pin.h

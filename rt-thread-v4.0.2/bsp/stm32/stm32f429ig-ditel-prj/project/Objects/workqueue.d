@@ -30,6 +30,5 @@
 .\objects\workqueue.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\workqueue.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\workqueue.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\workqueue.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\workqueue.o: ..\..\..\..\components\drivers\include\drivers/serial.h
 .\objects\workqueue.o: ..\..\..\..\components\drivers\include\drivers/pin.h

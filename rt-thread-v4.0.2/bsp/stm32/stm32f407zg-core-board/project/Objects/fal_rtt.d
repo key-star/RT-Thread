@@ -44,9 +44,12 @@
 .\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h
 .\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h
 .\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h
+.\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_crc.h
 .\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h
 .\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h
 .\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h
+.\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sram.h
+.\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fsmc.h
 .\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
 .\objects\fal_rtt.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h
@@ -63,10 +66,12 @@
 .\objects\fal_rtt.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\fal_rtt.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\fal_rtt.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\fal_rtt.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\fal_rtt.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\fal_rtt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\fal_rtt.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\fal_rtt.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\fal_rtt.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\fal_rtt.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\fal_rtt.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\fal_rtt.o: ..\..\libraries\HAL_Drivers\drv_gpio.h
 .\objects\fal_rtt.o: ..\board\board.h

@@ -29,7 +29,6 @@
 .\objects\main.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\main.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\main.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\main.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\main.o: ..\..\..\..\components\drivers\include\drivers/serial.h
 .\objects\main.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\main.o: ..\board\board.h
@@ -58,6 +57,8 @@
 .\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h
 .\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h
 .\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h
+.\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sdram.h
+.\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fmc.h
 .\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
 .\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h

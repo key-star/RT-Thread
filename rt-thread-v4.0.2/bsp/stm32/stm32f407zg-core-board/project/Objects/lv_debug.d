@@ -1,0 +1,13 @@
+.\objects\lv_debug.o: ..\..\..\..\components\LittlevGL2RTT\lvgl\lv_misc\lv_debug.c
+.\objects\lv_debug.o: ..\..\..\..\components\LittlevGL2RTT\lvgl\lv_misc\lv_debug.h
+.\objects\lv_debug.o: ..\..\..\..\components\LittlevGL2RTT\lvgl\lv_misc\../lv_conf_internal.h
+.\objects\lv_debug.o: ..\..\..\..\components\LittlevGL2RTT\lvgl\lv_misc\../lv_conf_kconfig.h
+.\objects\lv_debug.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\lv_debug.o: ..\..\..\..\components\LittlevGL2RTT\lvgl\lv_core\../../lv_conf.h
+.\objects\lv_debug.o: ..\board\rtconfig.h
+.\objects\lv_debug.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\lv_debug.o: ..\..\..\..\components\LittlevGL2RTT\lvgl\lv_misc\lv_mem.h
+.\objects\lv_debug.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\lv_debug.o: ..\..\..\..\components\LittlevGL2RTT\lvgl\lv_misc\lv_log.h
+.\objects\lv_debug.o: ..\..\..\..\components\LittlevGL2RTT\lvgl\lv_misc\lv_types.h
+.\objects\lv_debug.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

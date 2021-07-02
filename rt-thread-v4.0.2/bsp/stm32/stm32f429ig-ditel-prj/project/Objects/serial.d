@@ -30,7 +30,6 @@
 .\objects\serial.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\serial.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\serial.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/serial.h
 .\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\serial.o: ..\..\..\..\kernel\include\rtdbg.h

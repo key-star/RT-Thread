@@ -38,10 +38,12 @@
 .\objects\netdev.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\netdev.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\netdev.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\netdev.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\netdev.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\netdev.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\netdev.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\netdev.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\netdev.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\netdev.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\netdev.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\netdev.o: ..\..\..\..\components\dfs\include\dfs_file.h
 .\objects\netdev.o: ..\..\..\..\components\dfs\include\dfs.h

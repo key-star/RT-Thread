@@ -30,10 +30,12 @@
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\enc28j60_init.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\spi\enc28j60.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\net\lwip-2.0.2\src\include\netif/ethernetif.h
@@ -88,9 +90,12 @@
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h
+.\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_crc.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h
+.\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sram.h
+.\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fsmc.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h

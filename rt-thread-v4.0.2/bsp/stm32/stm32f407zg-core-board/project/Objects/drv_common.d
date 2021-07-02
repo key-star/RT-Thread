@@ -31,10 +31,12 @@
 .\objects\drv_common.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\drv_common.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\drv_common.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\drv_common.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\drv_common.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\drv_common.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\drv_common.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\drv_common.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\drv_common.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\drv_common.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\drv_common.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\drv_common.o: ..\board\board.h
 .\objects\drv_common.o: ..\cubemx\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
@@ -59,9 +61,12 @@
 .\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h
 .\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h
 .\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h
+.\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_crc.h
 .\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h
 .\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h
 .\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h
+.\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sram.h
+.\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fsmc.h
 .\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
 .\objects\drv_common.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h

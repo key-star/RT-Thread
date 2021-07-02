@@ -69,7 +69,7 @@
 #define FINSH_CMD_SIZE 80
 #define FINSH_USING_MSH
 #define FINSH_USING_MSH_DEFAULT
-#define FINSH_USING_MSH_ONLY
+//#define FINSH_USING_MSH_ONLY
 #define FINSH_ARG_MAX 10
 
 /* Device virtual file system */
@@ -98,14 +98,14 @@
 
 #define RT_USING_DEVICE_IPC
 #define RT_PIPE_BUFSZ 512
-#define RT_USING_SYSTEM_WORKQUEUE
-#define RT_SYSTEM_WORKQUEUE_STACKSIZE 2048
-#define RT_SYSTEM_WORKQUEUE_PRIORITY 23
+//#define RT_USING_SYSTEM_WORKQUEUE
+//#define RT_SYSTEM_WORKQUEUE_STACKSIZE 2048
+//#define RT_SYSTEM_WORKQUEUE_PRIORITY 23
 #define RT_USING_SERIAL
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
 #define RT_USING_PIN
-#define RT_USING_RTC
+//#define RT_USING_RTC
 //#define RT_USING_SPI
 //#define RT_USING_SFUD
 //#define RT_SFUD_USING_SFDP
@@ -288,7 +288,7 @@
 /* Onboard Peripheral Drivers */
 
 #define BSP_USING_USB_TO_USART
-//#define BSP_USING_SDRAM
+#define BSP_USING_SDRAM
 //#define BSP_USING_SPI_FLASH
 
 /* On-chip Peripheral Drivers */
@@ -300,6 +300,7 @@
 //#define BSP_USING_SPI
 //#define BSP_USING_SPI1
 //#define BSP_USING_SPI2
+#define BSP_USING_FMC
 
 /* Board extended module Drivers */
 

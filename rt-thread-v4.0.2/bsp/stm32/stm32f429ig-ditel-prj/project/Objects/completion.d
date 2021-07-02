@@ -30,6 +30,5 @@
 .\objects\completion.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\completion.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\completion.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/serial.h
 .\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/pin.h

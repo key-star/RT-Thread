@@ -35,10 +35,12 @@
 .\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\arc4_alt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\arc4_alt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\arc4_alt.o: ..\..\..\..\kernel\include\rtdbg.h

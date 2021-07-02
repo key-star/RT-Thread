@@ -43,9 +43,11 @@
 .\objects\timing_alt.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\timing_alt.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\timing_alt.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\timing_alt.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\timing_alt.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\timing_alt.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\timing_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\timing_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\timing_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\timing_alt.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\timing_alt.o: ..\..\..\..\components\dfs\include\dfs_fs.h
 .\objects\timing_alt.o: ..\..\..\..\components\libc\compilers\armlibc\sys/types.h

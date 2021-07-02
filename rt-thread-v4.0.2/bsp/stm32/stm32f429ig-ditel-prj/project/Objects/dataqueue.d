@@ -29,7 +29,6 @@
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\rtdevice.h
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
-.\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/serial.h
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\dataqueue.o: ..\..\..\..\kernel\include\rthw.h

@@ -35,5 +35,12 @@
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\ringbuffer.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

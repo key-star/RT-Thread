@@ -36,4 +36,11 @@
 .\objects\ringblk_buf.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\ringblk_buf.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\ringblk_buf.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\ringblk_buf.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\ringblk_buf.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\ringblk_buf.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\ringblk_buf.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\ringblk_buf.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\ringblk_buf.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\ringblk_buf.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\ringblk_buf.o: ..\..\..\..\components\drivers\include\drivers/pin.h

@@ -36,6 +36,13 @@
 .\objects\i2c_utils.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\i2c_utils.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\i2c_utils.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\i2c_utils.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\i2c_utils.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\i2c_utils.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\i2c_utils.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\i2c_utils.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\i2c_utils.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\i2c_utils.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\i2c_utils.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\i2c_utils.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\i2c_utils.o: ..\..\..\..\components\rt-i2c-tools\src\SoftwareI2C.h

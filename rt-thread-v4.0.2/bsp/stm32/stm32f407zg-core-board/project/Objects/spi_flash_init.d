@@ -37,6 +37,13 @@
 .\objects\spi_flash_init.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\spi_flash_init.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\spi_flash_init.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\spi_flash_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\spi_flash_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\spi_flash_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\spi_flash_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\spi_flash_init.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\spi_flash_init.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\spi_flash_init.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\spi_flash_init.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\spi_flash_init.o: ..\..\..\..\components\drivers\spi\./sfud/inc/sfud.h
 .\objects\spi_flash_init.o: ..\..\..\..\components\drivers\spi\./sfud/inc/sfud_def.h
@@ -79,6 +86,8 @@
 .\objects\spi_flash_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fsmc.h
 .\objects\spi_flash_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\spi_flash_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
+.\objects\spi_flash_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sd.h
+.\objects\spi_flash_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_sdmmc.h
 .\objects\spi_flash_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h
 .\objects\spi_flash_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
 .\objects\spi_flash_init.o: ..\..\libraries\HAL_Drivers\drv_gpio.h

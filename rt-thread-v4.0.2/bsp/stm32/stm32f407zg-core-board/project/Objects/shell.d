@@ -45,5 +45,12 @@
 .\objects\shell.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\shell.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\shell.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\shell.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\shell.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\shell.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\shell.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\shell.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\shell.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\shell.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\shell.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\shell.o: ..\..\..\..\components\dfs\include\dfs_fs.h

@@ -41,6 +41,13 @@
 .\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\arc4_alt.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\arc4_alt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\arc4_alt.o: ..\..\..\..\kernel\include\rtdbg.h

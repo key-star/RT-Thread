@@ -119,9 +119,10 @@ int gt917s_sample(const char *name/*, rt_uint16_t x, rt_uint16_t y*/)
 }
 
 #if defined(PKG_USING_GT917S)
-void gt917s_sample_demo(void)
+int gt917s_sample_demo(void)
 {
 	gt917s_sample("gt917s"/*, LV_HOR_RES, LV_VER_RES*/);
+	return RT_EOK;
 }
 INIT_APP_EXPORT(gt917s_sample_demo);
 #endif

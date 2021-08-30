@@ -22,5 +22,5 @@ int rt_hw_gt917s_port(void)
 
     return 0;
 }
-INIT_COMPONENT_EXPORT(rt_hw_gt917s_port);
+INIT_DEVICE_EXPORT(rt_hw_gt917s_port);
 #endif

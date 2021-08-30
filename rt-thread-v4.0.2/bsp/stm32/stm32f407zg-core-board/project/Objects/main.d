@@ -35,6 +35,13 @@
 .\objects\main.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\main.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\main.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\main.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\main.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\main.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\main.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\main.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\main.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\main.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\main.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\main.o: ..\board\board.h
 .\objects\main.o: ..\cubemx\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
@@ -67,6 +74,8 @@
 .\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fsmc.h
 .\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
+.\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sd.h
+.\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_sdmmc.h
 .\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h
 .\objects\main.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
 .\objects\main.o: ..\..\libraries\HAL_Drivers\drv_common.h

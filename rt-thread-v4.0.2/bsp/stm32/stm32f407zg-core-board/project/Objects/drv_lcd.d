@@ -50,6 +50,8 @@
 .\objects\drv_lcd.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fsmc.h
 .\objects\drv_lcd.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\drv_lcd.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
+.\objects\drv_lcd.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sd.h
+.\objects\drv_lcd.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_sdmmc.h
 .\objects\drv_lcd.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h
 .\objects\drv_lcd.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
 .\objects\drv_lcd.o: ..\..\libraries\HAL_Drivers\drv_common.h
@@ -70,6 +72,13 @@
 .\objects\drv_lcd.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\drv_lcd.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\drv_lcd.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\drv_lcd.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\drv_lcd.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\drv_lcd.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\drv_lcd.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\drv_lcd.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\drv_lcd.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\drv_lcd.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\drv_lcd.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\drv_lcd.o: ..\..\libraries\HAL_Drivers\drv_gpio.h
 .\objects\drv_lcd.o: ..\board\board.h

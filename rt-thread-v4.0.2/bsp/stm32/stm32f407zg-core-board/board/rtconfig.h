@@ -79,7 +79,7 @@
 
 #define RT_USING_DFS
 #define DFS_USING_WORKDIR
-#define DFS_FILESYSTEMS_MAX 2
+#define DFS_FILESYSTEMS_MAX 3
 #define DFS_FILESYSTEM_TYPES_MAX 2
 #define DFS_FD_MAX 16
 //#define RT_USING_DFS_MNTTABLE
@@ -110,6 +110,12 @@
 #define RT_USING_I2C
 #define RT_USING_I2C_BITOPS
 #define RT_USING_PIN
+#define RT_USING_SDIO
+#define RT_SDIO_STACK_SIZE 512
+#define RT_SDIO_THREAD_PRIORITY 15
+#define RT_MMCSD_STACK_SIZE 1024
+#define RT_MMCSD_THREAD_PREORITY 22
+#define RT_MMCSD_MAX_PARTITION 16
 #define RT_USING_TOUCH
 //#define RT_USING_RTC
 #define RT_USING_SPI
@@ -133,10 +139,13 @@
 /* Socket abstraction layer */
 
 #define RT_USING_SAL
+#define SAL_INTERNET_CHECK
 
 /* protocol stack implement */
 
 #define SAL_USING_POSIX
+#define SAL_USING_AT
+#define SAL_SOCKETS_NUM 16
 
 /* Network interface device */
 
@@ -198,6 +207,14 @@
 #define LWIP_USING_CUSTOMER_DNS_SERVER
 #define DHCP_DNS_SERVER_IP "192.168.0.1"
 
+#define RT_USING_AT
+#define AT_USING_CLIENT
+#define AT_CLIENT_NUM_MAX 1
+#define AT_USING_SOCKET
+#define AT_USING_CLI
+#define AT_CMD_MAX_LEN 128
+#define AT_SW_VERSION_NUM 0x10301
+
 /* VBUS(Virtual Software BUS) */
 
 
@@ -230,6 +247,17 @@
 #define PKG_NETUTILS_NETIO
 #define PKG_USING_NETUTILS_V120
 
+#define PKG_USING_AT_DEVICE
+#define AT_DEVICE_USING_ESP8266
+#define AT_DEVICE_ESP8266_INIT_ASYN
+#define AT_DEVICE_ESP8266_SAMPLE
+#define ESP8266_SAMPLE_WIFI_SSID "rtthread"
+#define ESP8266_SAMPLE_WIFI_PASSWORD "12345678"
+#define ESP8266_SAMPLE_CLIENT_NAME "uart2"
+#define ESP8266_SAMPLE_RECV_BUFF_LEN 512
+#define PKG_USING_AT_DEVICE_V204
+#define PKG_AT_DEVICE_VER_NUM 0x20004
+
 /* IoT Cloud */
 
 
@@ -260,8 +288,8 @@
 //#define PKG_STEMWIN_VER_NUM 0x99999
 
 #define PKG_USING_TJPGD
-#define TJPGD_INPUT_BUFFER_SIZE 512
-#define TJPGD_USING_FORMAT_RGB888
+#define TJPGD_INPUT_BUFFER_SIZE 3072
+#define TJPGD_USING_FORMAT_RGB565
 #define TJPGD_USING_SCALE
 #define TJPGD_USING_TBLCLIP
 #define PKG_TJPGD_SAMPLE
@@ -269,6 +297,8 @@
 
 /* tools packages */
 
+#define PKG_USING_MEM_SANDBOX
+#define PKG_USING_MEM_SANDBOX_LATEST_VERSION
 
 /* system packages */
 
@@ -293,10 +323,13 @@
 #define LV_HOR_RES 800
 #define LV_VER_RES 480
 #define LV_DPI 217
+#define LV_PNG_USE_LV_FILESYSTEM 1
 #define LITTLEVGL2RTT_USING_DEMO
+#define LV_EX_CONF_INCLUDE_SIMPLE
 
 /* peripheral libraries and drivers */
 
+#define SDIO_MAX_FREQ 1000000
 #define PKG_USING_I2C_TOOLS
 #define I2C_TOOLS_USE_SW_I2C
 #define I2C_TOOLS_SW_ACK_TIMEOUT 100
@@ -307,6 +340,8 @@
 
 /* miscellaneous packages */
 
+#define PKG_USING_OPTPARSE
+#define PKG_USING_OPTPARSE_LATEST_VERSION
 
 /* samples: kernel and components samples */
 
@@ -318,6 +353,7 @@
 #define NETWORK_SAMPLES_USING_UDP_SERVER
 #define NETWORK_SAMPLES_USING_TCP_CLIENT_SELECT
 #define NETWORK_SAMPLES_USING_HTTP_CLIENT
+
 #define PKG_USING_VT100
 #define VT100_USING_MONITOR
 #define VT100_USING_COLOR
@@ -326,6 +362,27 @@
 #define VT100_USING_LSIMG
 #define PKG_USING_VT100_LATEST_VERSION
 #define PKG_VT100_VER_NUM 0x99999
+
+#define PKG_USING_VI
+#define VI_SANDBOX_SIZE_KB 20
+#define VI_MAX_LEN 4096
+#define VI_ENABLE_COLON
+#define VI_ENABLE_COLON_EXPAND
+#define VI_ENABLE_YANKMARK
+#define VI_ENABLE_SEARCH
+#define VI_ENABLE_DOT_CMD
+#define VI_ENABLE_READONLY
+#define VI_ENABLE_SETOPTS
+#define VI_ENABLE_SET
+#define VI_ENABLE_VI_ASK_TERMINAL
+#define VI_ENABLE_UNDO
+#define VI_ENABLE_UNDO_QUEUE
+#define VI_UNDO_QUEUE_MAX 256
+#define VI_ENABLE_VERBOSE_STATUS
+#define PKG_USING_VI_LATEST_VERSION
+
+/* entertainment: terminal games and other interesting software packages */
+
 #define SOC_FAMILY_STM32
 #define SOC_SERIES_STM32F4
 
@@ -337,6 +394,7 @@
 
 #define BSP_USING_USB_TO_USART
 #define BSP_USING_SPI_FLASH
+#define BSP_USING_SDCARD
 #define BSP_USING_SRAM
 
 /* On-chip Peripheral Drivers */
@@ -344,6 +402,7 @@
 #define BSP_USING_GPIO
 #define BSP_USING_UART
 #define BSP_USING_UART1
+#define BSP_USING_UART2
 #define BSP_USING_I2C1
 #define BSP_I2C1_SCL_PIN GET_PIN(B, 0)
 #define BSP_I2C1_SDA_PIN GET_PIN(F, 11)
@@ -353,6 +412,7 @@
 #define BSP_USING_SPI
 #define BSP_USING_SPI1
 #define BSP_USING_SPI2
+#define BSP_USING_SDIO
 
 /* Board extended module Drivers */
 

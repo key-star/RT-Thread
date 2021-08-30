@@ -36,6 +36,13 @@
 .\objects\littlevgl2rtt.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\littlevgl2rtt.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\littlevgl2rtt.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\littlevgl2rtt.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\littlevgl2rtt.o: ..\..\..\..\components\LittlevGL2RTT\lvgl.h
 .\objects\littlevgl2rtt.o: ..\..\..\..\components\LittlevGL2RTT\./lvgl/lvgl.h
@@ -130,3 +137,10 @@
 .\objects\littlevgl2rtt.o: ..\..\..\..\components\LittlevGL2RTT\./lvgl/lv_api_map.h
 .\objects\littlevgl2rtt.o: ..\..\..\..\components\LittlevGL2RTT\./lvgl/../lvgl.h
 .\objects\littlevgl2rtt.o: ..\..\..\..\components\LittlevGL2RTT\./lvgl/.././lvgl/lvgl.h
+.\objects\littlevgl2rtt.o: ..\ports\lvgl\lv_port_fs.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\lv_lib_bmp\lv_bmp.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\lv_lib_png\lv_png.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\lv_lib_split_jpg\lv_sjpg.h
+.\objects\littlevgl2rtt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\lv_lib_split_jpg\tjpgd.h
+.\objects\littlevgl2rtt.o: ..\..\..\..\components\lv_lib_split_jpg\tjpgdcnf.h

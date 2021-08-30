@@ -41,6 +41,13 @@
 .\objects\webclient_file.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\webclient_file.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\webclient_file.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\webclient_file.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\webclient_file.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\webclient_file.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\webclient_file.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\webclient_file.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\webclient_file.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\webclient_file.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\webclient_file.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\webclient_file.o: ..\..\..\..\components\dfs\include\dfs_fs.h
 .\objects\webclient_file.o: ..\..\..\..\kernel\include\rtdbg.h

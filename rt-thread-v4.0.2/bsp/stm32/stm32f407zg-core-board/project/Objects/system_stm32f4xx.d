@@ -30,5 +30,7 @@
 .\objects\system_stm32f4xx.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fsmc.h
 .\objects\system_stm32f4xx.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\system_stm32f4xx.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
+.\objects\system_stm32f4xx.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sd.h
+.\objects\system_stm32f4xx.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_sdmmc.h
 .\objects\system_stm32f4xx.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h
 .\objects\system_stm32f4xx.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h

@@ -1,5 +1,9 @@
 #include "littlevgl2rtt.h"
 #include "lvgl.h"
+#include "lv_port_fs.h"
+#include "lv_bmp.h"
+#include "lv_png.h"
+#include "lv_sjpg.h"
 
 static rt_device_t device;
 static struct rt_device_graphic_info info;
@@ -353,6 +357,13 @@ rt_err_t littlevgl2rtt_init(const char *name)
     indev_drv.read_cb = input_read;
 
     lv_indev_drv_register(&indev_drv);
+	
+	lv_port_fs_init();
+	
+	lv_bmp_init();
+	lv_png_init();
+	lv_split_jpeg_init();
+	
     _lv_init = 1;
 
     /* littlevGL Tick thread */

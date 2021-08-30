@@ -38,6 +38,13 @@
 .\objects\select.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\select.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\select.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\select.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\select.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\select.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\select.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\select.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\select.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\select.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\select.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\select.o: ..\..\..\..\components\dfs\include\dfs_fs.h
 .\objects\select.o: ..\..\..\..\components\dfs\include\dfs_posix.h

@@ -50,6 +50,8 @@
 .\objects\touch_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fsmc.h
 .\objects\touch_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\touch_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
+.\objects\touch_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sd.h
+.\objects\touch_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_sdmmc.h
 .\objects\touch_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h
 .\objects\touch_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
 .\objects\touch_init.o: ..\..\libraries\HAL_Drivers\drv_common.h
@@ -70,6 +72,13 @@
 .\objects\touch_init.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\touch_init.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\touch_init.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\touch_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\touch_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\touch_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\touch_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\touch_init.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\touch_init.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\touch_init.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\touch_init.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\touch_init.o: ..\..\libraries\HAL_Drivers\drv_gpio.h
 .\objects\touch_init.o: ..\board\board.h

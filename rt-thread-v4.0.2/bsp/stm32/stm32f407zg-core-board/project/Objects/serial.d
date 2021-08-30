@@ -36,6 +36,13 @@
 .\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\serial.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\serial.o: ..\..\..\..\kernel\include\rtdbg.h
 .\objects\serial.o: ..\..\..\..\components\dfs\include\dfs_posix.h

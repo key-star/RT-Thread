@@ -52,6 +52,8 @@
 .\objects\fal_flash_sfud_port.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fsmc.h
 .\objects\fal_flash_sfud_port.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\fal_flash_sfud_port.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
+.\objects\fal_flash_sfud_port.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sd.h
+.\objects\fal_flash_sfud_port.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_sdmmc.h
 .\objects\fal_flash_sfud_port.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h
 .\objects\fal_flash_sfud_port.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
 .\objects\fal_flash_sfud_port.o: ..\..\libraries\HAL_Drivers\drv_common.h
@@ -72,6 +74,13 @@
 .\objects\fal_flash_sfud_port.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\fal_flash_sfud_port.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\fal_flash_sfud_port.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\fal_flash_sfud_port.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\fal_flash_sfud_port.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\fal_flash_sfud_port.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\fal_flash_sfud_port.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\fal_flash_sfud_port.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\fal_flash_sfud_port.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\fal_flash_sfud_port.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\fal_flash_sfud_port.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\fal_flash_sfud_port.o: ..\..\libraries\HAL_Drivers\drv_gpio.h
 .\objects\fal_flash_sfud_port.o: ..\board\board.h

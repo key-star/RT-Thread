@@ -41,6 +41,13 @@
 .\objects\des_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\des_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\des_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\des_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\des_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\des_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\des_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\des_alt.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\des_alt.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\des_alt.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\des_alt.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\des_alt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\des_alt.o: ..\..\..\..\kernel\include\rtdbg.h

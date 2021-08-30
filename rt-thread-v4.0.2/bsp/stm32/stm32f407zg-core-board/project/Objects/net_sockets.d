@@ -38,6 +38,13 @@
 .\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\net_sockets.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\net_sockets.o: ..\..\..\..\components\dfs\include\dfs_file.h
 .\objects\net_sockets.o: ..\..\..\..\components\dfs\include\dfs_fs.h

@@ -36,6 +36,13 @@
 .\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\LittlevGL2RTT\lvgl.h
 .\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\LittlevGL2RTT\./lvgl/lvgl.h
@@ -130,4 +137,4 @@
 .\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\LittlevGL2RTT\./lvgl/lv_api_map.h
 .\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\LittlevGL2RTT\./lvgl/../lvgl.h
 .\objects\littlevgl2rtt_demo.o: ..\..\..\..\components\LittlevGL2RTT\./lvgl/.././lvgl/lvgl.h
-.\objects\littlevgl2rtt_demo.o: ..\..\..\..\applications\lv-samples\lv_test_theme.h
+.\objects\littlevgl2rtt_demo.o: ..\..\..\..\applications\lv-samples\lv_img_test.h

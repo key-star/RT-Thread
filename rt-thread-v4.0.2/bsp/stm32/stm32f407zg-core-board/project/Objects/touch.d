@@ -36,6 +36,13 @@
 .\objects\touch.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\touch.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\touch.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\touch.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\touch.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\touch.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\touch.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\touch.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\touch.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\touch.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\touch.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\touch.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\touch.o: ..\..\..\..\kernel\include\rtdbg.h

@@ -44,5 +44,12 @@
 .\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\msh.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\msh.o: ..\..\..\..\components\dfs\include\dfs_fs.h

@@ -37,5 +37,12 @@
 .\objects\gt917s_sample.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\gt917s_sample.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\gt917s_sample.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\gt917s_sample.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\gt917s_sample.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\gt917s_sample.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\gt917s_sample.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\gt917s_sample.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\gt917s_sample.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\gt917s_sample.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\gt917s_sample.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\gt917s_sample.o: ..\ports\lvgl\littlevgl2rtt.h

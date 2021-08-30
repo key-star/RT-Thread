@@ -43,5 +43,12 @@
 .\objects\stubs.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\stubs.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\stubs.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\stubs.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\stubs.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\stubs.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\stubs.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\stubs.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\stubs.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\stubs.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\stubs.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\stubs.o: ..\..\..\..\components\dfs\include\dfs_fs.h

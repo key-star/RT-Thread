@@ -36,6 +36,13 @@
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\drivers\spi\enc28j60.h
 .\objects\enc28j60_init.o: ..\..\..\..\components\net\lwip-2.0.2\src\include\netif/ethernetif.h
@@ -98,6 +105,8 @@
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_fsmc.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
+.\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sd.h
+.\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_sdmmc.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h
 .\objects\enc28j60_init.o: ..\cubemx\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
 .\objects\enc28j60_init.o: ..\..\libraries\HAL_Drivers\drv_gpio.h

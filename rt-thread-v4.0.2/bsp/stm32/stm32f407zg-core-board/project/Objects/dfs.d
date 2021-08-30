@@ -38,6 +38,13 @@
 .\objects\dfs.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\dfs.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\dfs.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\dfs.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\dfs.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\dfs.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\dfs.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\dfs.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\dfs.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\dfs.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\dfs.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\dfs.o: ..\..\..\..\components\dfs\include\dfs_fs.h
 .\objects\dfs.o: ..\..\..\..\components\dfs\include\dfs_file.h

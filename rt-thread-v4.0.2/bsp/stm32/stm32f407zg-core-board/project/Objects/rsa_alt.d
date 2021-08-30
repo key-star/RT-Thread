@@ -52,6 +52,13 @@
 .\objects\rsa_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\rsa_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\rsa_alt.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\rsa_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\rsa_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\rsa_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\rsa_alt.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\rsa_alt.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\rsa_alt.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\rsa_alt.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\rsa_alt.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\rsa_alt.o: ..\..\..\..\components\mbedtls\mbedtls\include\mbedtls/platform.h
 .\objects\rsa_alt.o: ..\..\..\..\components\mbedtls\mbedtls\include\mbedtls/platform_time.h

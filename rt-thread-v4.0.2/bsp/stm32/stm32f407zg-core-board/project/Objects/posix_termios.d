@@ -40,6 +40,13 @@
 .\objects\posix_termios.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\posix_termios.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\posix_termios.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\posix_termios.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\posix_termios.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\posix_termios.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\posix_termios.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\posix_termios.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\posix_termios.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\posix_termios.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\posix_termios.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\posix_termios.o: ..\..\..\..\components\dfs\include\dfs_fs.h
 .\objects\posix_termios.o: ..\..\..\..\components\libc\compilers\armlibc\termios.h

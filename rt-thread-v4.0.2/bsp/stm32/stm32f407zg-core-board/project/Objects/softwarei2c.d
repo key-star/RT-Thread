@@ -36,4 +36,11 @@
 .\objects\softwarei2c.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\softwarei2c.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\softwarei2c.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\softwarei2c.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\softwarei2c.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\softwarei2c.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\softwarei2c.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\softwarei2c.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\softwarei2c.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\softwarei2c.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\softwarei2c.o: ..\..\..\..\components\drivers\include\drivers/pin.h

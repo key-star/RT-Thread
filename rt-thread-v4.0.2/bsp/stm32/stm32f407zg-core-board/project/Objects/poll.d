@@ -36,6 +36,13 @@
 .\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
 .\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
 .\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
+.\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
+.\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
+.\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h
+.\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_cmd.h
+.\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/sd.h
+.\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/sdio.h
+.\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/sdio_func_ids.h
 .\objects\poll.o: ..\..\..\..\components\drivers\include\drivers/pin.h
 .\objects\poll.o: ..\..\..\..\components\dfs\include\dfs.h
 .\objects\poll.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

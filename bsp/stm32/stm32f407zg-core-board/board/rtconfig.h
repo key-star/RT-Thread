@@ -222,6 +222,7 @@
 
 /* Utilities */
 
+#define RT_USING_RYM
 
 /* RT-Thread online packages */
 
@@ -236,6 +237,13 @@
 
 #define PKG_USING_CJSON
 #define PKG_USING_CJSON_V1714
+
+#define PKG_USING_OTA_DOWNLOADER
+#define OTA_DOWNLOADER_DEBUG
+#define PKG_USING_HTTP_OTA
+#define PKG_HTTP_OTA_URL "http://xxx/xxx/rtthread.rbl"
+#define PKG_USING_YMODEM_OTA
+#define PKG_USING_OTA_DOWNLOADER_V100
 
 /* Wi-Fi */
 

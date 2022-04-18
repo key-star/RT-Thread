@@ -1,4 +1,4 @@
-.\objects\custom.o: ..\..\..\..\applications\lv-samples\lv_olympic\custom\custom.c
+.\objects\custom.o: ..\..\..\..\applications\lv-samples\lv_ota\custom\custom.c
 .\objects\custom.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\custom.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/lvgl.h
 .\objects\custom.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/lv_misc/lv_log.h
@@ -95,6 +95,6 @@
 .\objects\custom.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/lv_api_map.h
 .\objects\custom.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/../lvgl.h
 .\objects\custom.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/.././lvgl/lvgl.h
-.\objects\custom.o: ..\..\..\..\applications\lv-samples\lv_olympic\custom\custom.h
-.\objects\custom.o: ..\..\..\..\applications\lv-samples\lv_olympic\generated\gui_guider.h
-.\objects\custom.o: ..\..\..\..\applications\lv-samples\lv_olympic\generated\guider_fonts\guider_fonts.h
+.\objects\custom.o: ..\..\..\..\applications\lv-samples\lv_ota\custom\custom.h
+.\objects\custom.o: ..\..\..\..\applications\lv-samples\lv_ota\generated\gui_guider.h
+.\objects\custom.o: ..\..\..\..\applications\lv-samples\lv_ota\generated\guider_fonts\guider_fonts.h

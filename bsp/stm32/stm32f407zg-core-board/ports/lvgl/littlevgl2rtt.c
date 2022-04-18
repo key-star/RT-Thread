@@ -230,7 +230,7 @@ static void lvgl_task_run(void *p)
 
     while (_lv_init)
     {
-        rt_thread_mdelay(10);
+        rt_thread_mdelay(5);
         lv_task_handler();
     }
 #if (LV_ENABLE_GC == 1)

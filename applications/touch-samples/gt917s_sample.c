@@ -47,11 +47,11 @@ static void gt917s_entry(void *parameter)
 				littlevgl2rtt_send_input_event(read_data[i].x_coordinate, read_data[i].y_coordinate, read_data[i].event);
                 if (read_data[i].event == RT_TOUCH_EVENT_DOWN || read_data[i].event == RT_TOUCH_EVENT_MOVE)
                 {
-                    rt_kprintf("%d %d %d %d %d\n", read_data[i].track_id,
-                               read_data[i].x_coordinate,
-                               read_data[i].y_coordinate,
-                               read_data[i].timestamp,
-                               read_data[i].width);
+                    // rt_kprintf("%d %d %d %d %d\n", read_data[i].track_id,
+                    //            read_data[i].x_coordinate,
+                    //            read_data[i].y_coordinate,
+                    //            read_data[i].timestamp,
+                    //            read_data[i].width);
                 }
             }
         }

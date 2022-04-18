@@ -7,10 +7,13 @@
 #include "lv_test_theme.h"
 //#include "lv_img_test.h"
 
+void lv_desktop_background(uint32_t delay);
+
 static void lvgl_demo_run(void *p)
 {
-	lv_demo_widgets();
+//	lv_demo_widgets();
 //	lv_demo_img_test();
+	lv_desktop_background(0);
 }
 
 int rt_lvgl_demo_init(void)

@@ -1,4 +1,4 @@
-.\objects\setup_scr_screen.o: ..\..\..\..\applications\lv-samples\lv_olympic\generated\setup_scr_screen.c
+.\objects\setup_scr_screen.o: ..\..\..\..\applications\lv-samples\lv_ota\generated\setup_scr_screen.c
 .\objects\setup_scr_screen.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/lvgl.h
 .\objects\setup_scr_screen.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/lv_misc/lv_log.h
 .\objects\setup_scr_screen.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/lv_misc/../lv_conf_internal.h
@@ -95,9 +95,7 @@
 .\objects\setup_scr_screen.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/../lvgl.h
 .\objects\setup_scr_screen.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/.././lvgl/lvgl.h
 .\objects\setup_scr_screen.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\setup_scr_screen.o: ..\..\..\..\applications\lv-samples\lv_olympic\generated\gui_guider.h
-.\objects\setup_scr_screen.o: ..\..\..\..\applications\lv-samples\lv_olympic\generated\guider_fonts\guider_fonts.h
-.\objects\setup_scr_screen.o: ..\..\..\..\applications\lv-samples\lv_olympic\generated\events_init.h
-.\objects\setup_scr_screen.o: ..\..\..\..\applications\lv-samples\lv_olympic\custom\custom.h
-.\objects\setup_scr_screen.o: ..\..\..\..\applications\webclient-samples\olympic_sample.h
-.\objects\setup_scr_screen.o: ..\..\..\..\components\cJSON\cJSON.h
+.\objects\setup_scr_screen.o: ..\..\..\..\applications\lv-samples\lv_ota\generated\gui_guider.h
+.\objects\setup_scr_screen.o: ..\..\..\..\applications\lv-samples\lv_ota\generated\guider_fonts\guider_fonts.h
+.\objects\setup_scr_screen.o: ..\..\..\..\applications\lv-samples\lv_ota\generated\events_init.h
+.\objects\setup_scr_screen.o: ..\..\..\..\applications\lv-samples\lv_ota\custom\custom.h

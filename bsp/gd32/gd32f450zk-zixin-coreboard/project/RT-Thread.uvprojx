@@ -624,7 +624,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>components/lib</GroupName>
+          <GroupName>components/libc</GroupName>
         </Group>
         <Group>
           <GroupName>components/finsh</GroupName>

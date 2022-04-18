@@ -736,7 +736,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>components/lib</GroupName>
+          <GroupName>components/libc</GroupName>
           <Files>
             <File>
               <FileName>time.c</FileName>

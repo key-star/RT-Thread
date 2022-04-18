@@ -422,6 +422,9 @@
 ".\objects\tls_app_test.o"
 ".\objects\olympic_sample.o"
 ".\objects\epidemic_sample.o"
+".\objects\img_lv_100ask_icon_about_us.o"
+".\objects\lv_desktop.o"
+".\objects\lv_setting.o"
 --strict --scatter ".\Objects\RT-Thread.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

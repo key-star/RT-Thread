@@ -1,4 +1,4 @@
-.\objects\gui_guider.o: ..\..\..\..\applications\lv-samples\lv_olympic\generated\gui_guider.c
+.\objects\gui_guider.o: ..\..\..\..\applications\lv-samples\lv_ota\generated\gui_guider.c
 .\objects\gui_guider.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/lvgl.h
 .\objects\gui_guider.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/lv_misc/lv_log.h
 .\objects\gui_guider.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/lv_misc/../lv_conf_internal.h
@@ -95,5 +95,5 @@
 .\objects\gui_guider.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/../lvgl.h
 .\objects\gui_guider.o: ..\..\..\..\components\LittlevGL2RTT\lvgl/.././lvgl/lvgl.h
 .\objects\gui_guider.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\gui_guider.o: ..\..\..\..\applications\lv-samples\lv_olympic\generated\gui_guider.h
-.\objects\gui_guider.o: ..\..\..\..\applications\lv-samples\lv_olympic\generated\guider_fonts\guider_fonts.h
+.\objects\gui_guider.o: ..\..\..\..\applications\lv-samples\lv_ota\generated\gui_guider.h
+.\objects\gui_guider.o: ..\..\..\..\applications\lv-samples\lv_ota\generated\guider_fonts\guider_fonts.h

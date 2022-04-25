@@ -6,6 +6,14 @@
 .\objects\sfud_sfdp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\sfud_sfdp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\sfud_sfdp.o: ..\..\..\..\components\drivers\spi\sfud\inc\sfud_cfg.h
+.\objects\sfud_sfdp.o: ..\..\..\..\kernel\include\rtthread.h
 .\objects\sfud_sfdp.o: ..\board\rtconfig.h
+.\objects\sfud_sfdp.o: ..\..\..\..\kernel\include\rtdebug.h
+.\objects\sfud_sfdp.o: ..\..\..\..\kernel\include\rtdef.h
+.\objects\sfud_sfdp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\sfud_sfdp.o: ..\..\..\..\kernel\include\rtservice.h
+.\objects\sfud_sfdp.o: ..\..\..\..\kernel\include\rtm.h
+.\objects\sfud_sfdp.o: ..\..\..\..\kernel\include\rtthread.h
+.\objects\sfud_sfdp.o: ..\..\..\..\components\finsh\finsh.h
 .\objects\sfud_sfdp.o: ..\..\..\..\kernel\include\rtdbg.h
 .\objects\sfud_sfdp.o: ..\..\..\..\components\drivers\spi\sfud\src\../inc/sfud_flash_def.h

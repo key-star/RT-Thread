@@ -15,7 +15,8 @@
 #include <netdb.h>
 #include <cJSON.h>
 #include <finsh.h>
-#include "dfs_posix.h"
+#include <unistd.h>
+#include <dfs_file.h>
 
 #define GET_HEADER_BUFSZ        1024        //头部大小
 #define GET_RESP_BUFSZ          25 * 1024    //响应缓冲区大小

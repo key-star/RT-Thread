@@ -1,0 +1,11 @@
+.\objects\stdlib.o: ..\..\..\..\components\libc\compilers\common\stdlib.c
+.\objects\stdlib.o: ..\..\..\..\kernel\include\rtthread.h
+.\objects\stdlib.o: ..\board\rtconfig.h
+.\objects\stdlib.o: ..\..\..\..\kernel\include\rtdebug.h
+.\objects\stdlib.o: ..\..\..\..\kernel\include\rtdef.h
+.\objects\stdlib.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\stdlib.o: ..\..\..\..\kernel\include\rtservice.h
+.\objects\stdlib.o: ..\..\..\..\kernel\include\rtm.h
+.\objects\stdlib.o: ..\..\..\..\kernel\include\rtthread.h
+.\objects\stdlib.o: ..\..\..\..\components\finsh\finsh.h
+.\objects\stdlib.o: ..\..\..\..\kernel\include\rtdbg.h

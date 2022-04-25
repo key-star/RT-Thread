@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Winner Microelectronics Co., Ltd.
+ * Copyright (c) 2006-2022, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -19,7 +19,7 @@
 #include "drv_crypto.h"
 #include "board.h"
 #include "drv_config.h"
-     
+
 struct stm32_hwcrypto_device
 {
     struct rt_hwcrypto_device dev;
@@ -85,7 +85,32 @@ static rt_uint32_t _crc_update(struct hwcrypto_crc *ctx, const rt_uint8_t *in, r
             goto _exit;
         }
 
-        HW_TypeDef->Init.CRCLength = ctx ->crc_cfg.width;
+        switch(ctx ->crc_cfg.width)
+        {
+#if defined(CRC_POLYLENGTH_7B) && defined(CRC_POLYLENGTH_8B) && defined(CRC_POLYLENGTH_16B) && defined(CRC_POLYLENGTH_32B)
+        case 7:
+            HW_TypeDef->Init.CRCLength = CRC_POLYLENGTH_7B;
+            break;
+        case 8:
+            HW_TypeDef->Init.CRCLength = CRC_POLYLENGTH_8B;
+            break;
+        case 16:
+            HW_TypeDef->Init.CRCLength = CRC_POLYLENGTH_16B;
+            break;
+        case 32:
+            HW_TypeDef->Init.CRCLength = CRC_POLYLENGTH_32B;
+            break;
+        default :
+            goto _exit;
+#else
+        case 32:
+            HW_TypeDef->Init.CRCLength = CRC_POLYLENGTH_32B;
+            break;
+        default :
+            goto _exit;
+#endif /* defined(CRC_POLYLENGTH_7B) && defined(CRC_POLYLENGTH_8B) && defined(CRC_POLYLENGTH_16B) && defined(CRC_POLYLENGTH_32B) */
+        }
+
         if (HW_TypeDef->Init.DefaultInitValueUse == DEFAULT_INIT_VALUE_DISABLE)
         {
             HW_TypeDef->Init.InitValue = ctx ->crc_cfg.last_val;
@@ -148,7 +173,7 @@ static rt_uint32_t _rng_rand(struct hwcrypto_rng *ctx)
     {
         return gen_random ;
     }
-    
+
     return 0;
 }
 
@@ -164,8 +189,8 @@ static rt_err_t _hash_update(struct hwcrypto_hash *ctx, const rt_uint8_t *in, rt
     rt_uint32_t tickstart = 0;
     rt_uint32_t result = RT_EOK;
     struct stm32_hwcrypto_device *stm32_hw_dev = (struct stm32_hwcrypto_device *)ctx->parent.device->user_data;
-    rt_mutex_take(&stm32_hw_dev->mutex, RT_WAITING_FOREVER);    
-    
+    rt_mutex_take(&stm32_hw_dev->mutex, RT_WAITING_FOREVER);
+
 #if defined(SOC_SERIES_STM32MP1)
     HASH_HandleTypeDef *HW_TypeDef = (HASH_HandleTypeDef *)(ctx->parent.contex);
     /* Start HASH computation using DMA transfer */
@@ -191,7 +216,7 @@ static rt_err_t _hash_update(struct hwcrypto_hash *ctx, const rt_uint8_t *in, rt
     {
         goto _exit;
     }
-    /* Wait for DMA transfer to complete */ 
+    /* Wait for DMA transfer to complete */
     tickstart = rt_tick_get();
     while (HAL_HASH_GetState(HW_TypeDef) == HAL_HASH_STATE_BUSY)
     {
@@ -201,11 +226,11 @@ static rt_err_t _hash_update(struct hwcrypto_hash *ctx, const rt_uint8_t *in, rt
             goto _exit;
         }
     }
-    
+
 #endif
 _exit:
     rt_mutex_release(&stm32_hw_dev->mutex);
-        
+
    return  result;
 }
 
@@ -243,12 +268,12 @@ static rt_err_t _hash_finish(struct hwcrypto_hash *ctx, rt_uint8_t *out, rt_size
     {
         goto _exit;
     }
-#endif    
-    
+#endif
+
 _exit:
     rt_mutex_release(&stm32_hw_dev->mutex);
-    
-    return result;     
+
+    return result;
 }
 
 static const struct hwcrypto_hash_ops hash_ops =
@@ -259,7 +284,7 @@ static const struct hwcrypto_hash_ops hash_ops =
 
 #endif /* BSP_USING_HASH */
 
-#if defined(BSP_USING_CRYP) 
+#if defined(BSP_USING_CRYP)
 static rt_err_t _cryp_crypt(struct hwcrypto_symmetric *ctx,
                             struct hwcrypto_symmetric_info *info)
 {
@@ -268,10 +293,10 @@ static rt_err_t _cryp_crypt(struct hwcrypto_symmetric *ctx,
 
     struct stm32_hwcrypto_device *stm32_hw_dev = (struct stm32_hwcrypto_device *)ctx->parent.device->user_data;
     rt_mutex_take(&stm32_hw_dev->mutex, RT_WAITING_FOREVER);
-    
+
 #if defined(SOC_SERIES_STM32MP1)
     CRYP_HandleTypeDef *HW_TypeDef = (CRYP_HandleTypeDef *)(ctx->parent.contex);
-    
+
     switch (ctx->parent.type)
     {
     case HWCRYPTO_TYPE_AES_ECB:
@@ -287,25 +312,25 @@ static rt_err_t _cryp_crypt(struct hwcrypto_symmetric *ctx,
        break;
 
     case HWCRYPTO_TYPE_DES_ECB:
-       HW_TypeDef->Init.Algorithm = CRYP_DES_ECB; 
+       HW_TypeDef->Init.Algorithm = CRYP_DES_ECB;
        break;
-       
+
     case HWCRYPTO_TYPE_DES_CBC:
-       HW_TypeDef->Init.Algorithm = CRYP_DES_CBC; 
+       HW_TypeDef->Init.Algorithm = CRYP_DES_CBC;
        break;
-       
+
     default :
         rt_kprintf("not support cryp type: %x", ctx->parent.type);
-        break; 
+        break;
     }
-    
+
     HAL_CRYP_DeInit(HW_TypeDef);
-    
+
     HW_TypeDef->Init.DataType       = CRYP_DATATYPE_8B;
     HW_TypeDef->Init.DataWidthUnit  = CRYP_DATAWIDTHUNIT_BYTE;
     HW_TypeDef->Init.KeySize        = CRYP_KEYSIZE_128B;
     HW_TypeDef->Init.pKey           = (uint32_t*)ctx->key;
-    
+
     result =  HAL_CRYP_Init(HW_TypeDef);
     if (result != HAL_OK)
     {
@@ -314,11 +339,11 @@ static rt_err_t _cryp_crypt(struct hwcrypto_symmetric *ctx,
     }
     if (info->mode == HWCRYPTO_MODE_ENCRYPT)
     {
-         result = HAL_CRYP_Encrypt_DMA(HW_TypeDef, (uint32_t *)info->in, info->length, (uint32_t *)info->out); 
+         result = HAL_CRYP_Encrypt_DMA(HW_TypeDef, (uint32_t *)info->in, info->length, (uint32_t *)info->out);
     }
     else if (info->mode == HWCRYPTO_MODE_DECRYPT)
     {
-         result = HAL_CRYP_Decrypt_DMA(HW_TypeDef, (uint32_t *)info->in, info->length, (uint32_t *)info->out);   
+         result = HAL_CRYP_Decrypt_DMA(HW_TypeDef, (uint32_t *)info->in, info->length, (uint32_t *)info->out);
     }
     else
     {
@@ -326,7 +351,7 @@ static rt_err_t _cryp_crypt(struct hwcrypto_symmetric *ctx,
         result = RT_ERROR;
         goto _exit;
     }
-    
+
     if (result != HAL_OK)
     {
         goto _exit;
@@ -334,28 +359,28 @@ static rt_err_t _cryp_crypt(struct hwcrypto_symmetric *ctx,
 
     tickstart = rt_tick_get();
     while (HAL_CRYP_GetState(HW_TypeDef) != HAL_CRYP_STATE_READY)
-    {   
+    {
         if (rt_tick_get() - tickstart > 0xFFFF)
         {
             result = RT_ETIMEOUT;
             goto _exit;
         }
     }
-  
+
 #endif
-    
+
     if (result != HAL_OK)
     {
         goto _exit;
     }
-    
+
 _exit:
     rt_mutex_release(&stm32_hw_dev->mutex);
 
-    return result;    
+    return result;
 }
 
-static const struct hwcrypto_symmetric_ops cryp_ops = 
+static const struct hwcrypto_symmetric_ops cryp_ops =
 {
     .crypt = _cryp_crypt
 };
@@ -364,7 +389,7 @@ static const struct hwcrypto_symmetric_ops cryp_ops =
 static rt_err_t _crypto_create(struct rt_hwcrypto_ctx *ctx)
 {
     rt_err_t res = RT_EOK;
-    
+
     switch (ctx->type & HWCRYPTO_MAIN_TYPE_MASK)
     {
 #if defined(BSP_USING_RNG)
@@ -404,7 +429,7 @@ static rt_err_t _crypto_create(struct rt_hwcrypto_ctx *ctx)
         hcrc->Instance = CRC;
 #endif
 #if defined(SOC_SERIES_STM32L4) || defined(SOC_SERIES_STM32F0) || defined(SOC_SERIES_STM32H7) || defined(SOC_SERIES_STM32F7) || defined(SOC_SERIES_STM32WB) || defined(SOC_SERIES_STM32MP1)
-        hcrc->Init.DefaultPolynomialUse = DEFAULT_POLYNOMIAL_ENABLE;
+        hcrc->Init.DefaultPolynomialUse = DEFAULT_POLYNOMIAL_DISABLE;
         hcrc->Init.DefaultInitValueUse = DEFAULT_INIT_VALUE_DISABLE;
         hcrc->Init.InputDataInversionMode = CRC_INPUTDATA_INVERSION_BYTE;
         hcrc->Init.OutputDataInversionMode = CRC_OUTPUTDATA_INVERSION_ENABLE;
@@ -417,11 +442,11 @@ static rt_err_t _crypto_create(struct rt_hwcrypto_ctx *ctx)
 #endif /* defined(SOC_SERIES_STM32L4) || defined(SOC_SERIES_STM32F0) || defined(SOC_SERIES_STM32H7) || defined(SOC_SERIES_STM32F7) */
         ctx->contex = hcrc;
         ((struct hwcrypto_crc *)ctx)->ops = &crc_ops;
-        
+
         break;
     }
 #endif /* BSP_USING_CRC */
-    
+
 #if defined(BSP_USING_HASH)
     case HWCRYPTO_TYPE_MD5:
     case HWCRYPTO_TYPE_SHA1:
@@ -437,18 +462,18 @@ static rt_err_t _crypto_create(struct rt_hwcrypto_ctx *ctx)
         /* enable dma for hash */
         __HAL_RCC_DMA2_CLK_ENABLE();
         HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 2, 0);
-        HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn); 
+        HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
 
         hash->Init.DataType = HASH_DATATYPE_8B;
         if (HAL_HASH_Init(hash) != HAL_OK)
         {
             res = -RT_ERROR;
-        } 
+        }
 #endif
         ctx->contex = hash;
         ((struct hwcrypto_hash *)ctx)->ops = &hash_ops;
-        
-        break;  
+
+        break;
     }
 #endif /* BSP_USING_HASH */
 
@@ -480,14 +505,14 @@ static rt_err_t _crypto_create(struct rt_hwcrypto_ctx *ctx)
         {
             res = -RT_ERROR;
         }
-#endif  
+#endif
         ctx->contex = cryp;
         ((struct hwcrypto_symmetric *)ctx)->ops = &cryp_ops;
 
-        break;  
+        break;
     }
 #endif  /* BSP_USING_CRYP */
-    
+
     default:
         res = -RT_ERROR;
         break;
@@ -506,11 +531,11 @@ static void _crypto_destroy(struct rt_hwcrypto_ctx *ctx)
 
 #if defined(BSP_USING_CRC)
     case HWCRYPTO_TYPE_CRC:
-        __HAL_CRC_DR_RESET((CRC_HandleTypeDef *)ctx-> contex);			
+        __HAL_CRC_DR_RESET((CRC_HandleTypeDef *)ctx-> contex);
         HAL_CRC_DeInit((CRC_HandleTypeDef *)(ctx->contex));
         break;
 #endif /* BSP_USING_CRC */
-        
+
 #if defined(BSP_USING_HASH)
     case HWCRYPTO_TYPE_MD5:
     case HWCRYPTO_TYPE_SHA1:
@@ -529,7 +554,7 @@ static void _crypto_destroy(struct rt_hwcrypto_ctx *ctx)
          HAL_CRYP_DeInit((CRYP_HandleTypeDef *)(ctx->contex));
          break;
 #endif /* BSP_USING_CRYP */
-             
+
     default:
         break;
     }
@@ -548,7 +573,7 @@ static rt_err_t _crypto_clone(struct rt_hwcrypto_ctx *des, const struct rt_hwcry
         if (des->contex && src->contex)
         {
             rt_memcpy(des->contex, src->contex, sizeof(RNG_HandleTypeDef));
-        }    
+        }
         break;
 #endif /* BSP_USING_RNG */
 
@@ -560,7 +585,7 @@ static rt_err_t _crypto_clone(struct rt_hwcrypto_ctx *des, const struct rt_hwcry
         }
         break;
 #endif /* BSP_USING_CRC */
-        
+
 #if defined(BSP_USING_HASH)
     case HWCRYPTO_TYPE_MD5:
     case HWCRYPTO_TYPE_SHA1:
@@ -568,7 +593,7 @@ static rt_err_t _crypto_clone(struct rt_hwcrypto_ctx *des, const struct rt_hwcry
         if (des->contex && src->contex)
         {
             rt_memcpy(des->contex, src->contex, sizeof(HASH_HandleTypeDef));
-        } 
+        }
         break;
 #endif /* BSP_USING_HASH */
 
@@ -577,14 +602,14 @@ static rt_err_t _crypto_clone(struct rt_hwcrypto_ctx *des, const struct rt_hwcry
     case HWCRYPTO_TYPE_DES:
     case HWCRYPTO_TYPE_3DES:
     case HWCRYPTO_TYPE_RC4:
-    case HWCRYPTO_TYPE_GCM:    
+    case HWCRYPTO_TYPE_GCM:
         if (des->contex && src->contex)
         {
             rt_memcpy(des->contex, src->contex, sizeof(CRYP_HandleTypeDef));
-        } 
+        }
         break;
 #endif /* BSP_USING_CRYP */
-        
+
     default:
         res = -RT_ERROR;
         break;
@@ -606,7 +631,7 @@ static void _crypto_reset(struct rt_hwcrypto_ctx *ctx)
         __HAL_CRC_DR_RESET((CRC_HandleTypeDef *)ctx-> contex);
         break;
 #endif /* BSP_USING_CRC */
-        
+
 #if defined(BSP_USING_HASH)
     case HWCRYPTO_TYPE_MD5:
     case HWCRYPTO_TYPE_SHA1:
@@ -614,16 +639,16 @@ static void _crypto_reset(struct rt_hwcrypto_ctx *ctx)
         __HAL_HASH_RESET_HANDLE_STATE((HASH_HandleTypeDef *)(ctx->contex));
         break;
 #endif /* BSP_USING_HASH*/
-        
+
 #if defined(BSP_USING_CRYP)
     case HWCRYPTO_TYPE_AES:
     case HWCRYPTO_TYPE_DES:
     case HWCRYPTO_TYPE_3DES:
     case HWCRYPTO_TYPE_RC4:
-    case HWCRYPTO_TYPE_GCM:  
+    case HWCRYPTO_TYPE_GCM:
         break;
 #endif /* BSP_USING_CRYP */
-        
+
     default:
         break;
     }
@@ -636,9 +661,9 @@ void HASH2_DMA_IN_IRQHandler(void)
 
     /* enter interrupt */
     rt_interrupt_enter();
-    
+
     HAL_DMA_IRQHandler(&hdma_hash_in);
-    
+
     /* leave interrupt */
     rt_interrupt_leave();
 }
@@ -646,14 +671,14 @@ void HASH2_DMA_IN_IRQHandler(void)
 
 #if defined(CRYP2_IN_DMA_INSTANCE)
 void CRYP2_DMA_IN_IRQHandler(void)
-{   
+{
     extern DMA_HandleTypeDef hdma_cryp_in;
 
     /* enter interrupt */
     rt_interrupt_enter();
-    
+
     HAL_DMA_IRQHandler(&hdma_cryp_in);
-    
+
     /* leave interrupt */
     rt_interrupt_leave();
 }
@@ -663,12 +688,12 @@ void CRYP2_DMA_IN_IRQHandler(void)
 void CRYP2_DMA_OUT_IRQHandler(void)
 {
     extern DMA_HandleTypeDef hdma_cryp_out;
-    
+
     /* enter interrupt */
     rt_interrupt_enter();
-    
+
     HAL_DMA_IRQHandler(&hdma_cryp_out);
-    
+
     /* leave interrupt */
     rt_interrupt_leave();
 }
@@ -690,7 +715,7 @@ int stm32_hw_crypto_device_init(void)
     _crypto_dev.dev.ops = &_ops;
 #if defined(BSP_USING_UDID)
 
-#if defined(SOC_SERIES_STM32L4) || defined(SOC_SERIES_STM32F0) || defined(SOC_SERIES_STM32F1) || defined(SOC_SERIES_STM32F4) || defined(SOC_SERIES_STM32F7) 
+#if defined(SOC_SERIES_STM32L4) || defined(SOC_SERIES_STM32F0) || defined(SOC_SERIES_STM32F1) || defined(SOC_SERIES_STM32F4) || defined(SOC_SERIES_STM32F7)
     cpuid[0] = HAL_GetUIDw0();
     cpuid[1] = HAL_GetUIDw1();
 #elif defined(SOC_SERIES_STM32H7) || defined(SOC_SERIES_STM32MP1)
@@ -709,7 +734,7 @@ int stm32_hw_crypto_device_init(void)
     {
         return -1;
     }
-    rt_mutex_init(&_crypto_dev.mutex, RT_HWCRYPTO_DEFAULT_NAME, RT_IPC_FLAG_FIFO);
+    rt_mutex_init(&_crypto_dev.mutex, RT_HWCRYPTO_DEFAULT_NAME, RT_IPC_FLAG_PRIO);
     return 0;
 }
 INIT_DEVICE_EXPORT(stm32_hw_crypto_device_init);

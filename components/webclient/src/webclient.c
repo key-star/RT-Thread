@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2019, RT-Thread Development Team
+ * Copyright (c) 2006-2022, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -178,6 +178,8 @@ static int webclient_resolve_address(struct webclient_session *session, struct a
     RT_ASSERT(res);
     RT_ASSERT(request);
 
+    /* make sure *res = NULL before getaddrinfo */
+    *res = RT_NULL;
     url_len = rt_strlen(url);
 
     /* strip protocol(http or https) */
@@ -214,12 +216,22 @@ static int webclient_resolve_address(struct webclient_session *session, struct a
 
     /* resolve port */
     port_ptr = rt_strstr(host_addr + host_addr_len, ":");
-    if (port_ptr && path_ptr && (port_ptr < path_ptr))
+    if (port_ptr && (!path_ptr || (port_ptr < path_ptr)))
     {
-        int port_len = path_ptr - port_ptr - 1;
-
-        rt_strncpy(port_str, port_ptr + 1, port_len);
-        port_str[port_len] = '\0';
+        if (!path_ptr)
+        {
+            rt_strcpy(port_str, port_ptr + 1);
+        }
+        else
+        {
+            int port_len = path_ptr - port_ptr - 1;
+            rt_strncpy(port_str, port_ptr + 1, port_len);
+            port_str[port_len] = '\0';
+        }
+    }
+    else
+    {
+        port_ptr = RT_NULL;
     }
 
     if (port_ptr && (!path_ptr))
@@ -260,7 +272,7 @@ static int webclient_resolve_address(struct webclient_session *session, struct a
             goto __exit;
         }
 
-        memcpy(host_addr_new, host_addr, host_addr_len);
+        rt_memcpy(host_addr_new, host_addr, host_addr_len);
         host_addr_new[host_addr_len] = '\0';
         session->host = host_addr_new;
     }
@@ -523,12 +535,12 @@ int webclient_header_fields_add(struct webclient_session *session, const char *f
     va_start(args, fmt);
     length = rt_vsnprintf(session->header->buffer + session->header->length,
             session->header->size - session->header->length, fmt, args);
+    va_end(args);
     if (length < 0)
     {
         LOG_E("add fields header data failed, return length(%d) error.", length);
         return -WEBCLIENT_ERROR;
     }
-    va_end(args);
 
     session->header->length += length;
 
@@ -825,12 +837,13 @@ int webclient_handle_response(struct webclient_session *session)
     transfer_encoding = webclient_header_fields_get(session, "Transfer-Encoding");
     if (transfer_encoding && rt_strcmp(transfer_encoding, "chunked") == 0)
     {
-        char line[16];
-
+        rt_uint16_t len = session->header->size;
+        char *line = rt_malloc(len);
         /* chunk mode, we should get the first chunk size */
-        webclient_read_line(session, line, session->header->size);
-        session->chunk_sz = strtol(line, RT_NULL, 16);
+        webclient_read_line(session, line, len);
+        session->chunk_sz = strtol(line, RT_NULL, len);
         session->chunk_offset = 0;
+        rt_free(line);
     }
 
     if (mime_ptr)
@@ -1042,8 +1055,9 @@ int webclient_shard_head_function(struct webclient_session *session, const char 
 int webclient_shard_position_function(struct webclient_session *session, const char *URI, int start, int length, int mem_size)
 {
     int rc = WEBCLIENT_OK;
+    int result = RT_EOK;
     int resp_status = 0;
-    int resp_len = 0;
+    size_t resp_len = 0;
     char *buffer = RT_NULL;
     int start_position, end_position = 0;
     int total_len = 0;
@@ -1125,6 +1139,7 @@ int webclient_shard_position_function(struct webclient_session *session, const c
                     if(webclient_connect(session, URI) == WEBCLIENT_OK)
                     {
                         LOG_D("webclient reconnect success, retry at [%06d]", end_position);
+                        end_position = start_position;
                         continue;
                     }
                     else
@@ -1140,8 +1155,12 @@ int webclient_shard_position_function(struct webclient_session *session, const c
         data_len = webclient_response(session, (void **)&buffer, &resp_len);
         if(data_len > 0)
         {
-            start_position += mem_size;
-            session->handle_function(buffer, data_len);
+            start_position += data_len;
+            result = session->handle_function(buffer, data_len);
+            if(result != RT_EOK)
+            {
+                return -WEBCLIENT_ERROR;
+            }
         }
         else
         {
@@ -1166,7 +1185,6 @@ int webclient_shard_position_function(struct webclient_session *session, const c
  *
  * @param session webclient session
  * @param URI input server URI address
- * @param header POST request header, can't be empty
  * @param post_data data send to the server
  *                = NULL: just connect server and send header
  *               != NULL: send header and body data, resolve response data

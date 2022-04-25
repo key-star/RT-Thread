@@ -6,9 +6,7 @@
  * @LastEditors: Please set LastEditors
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <rtthread.h>
 #include "vt100.h"
 
 /**
@@ -18,7 +16,7 @@
  */
 void vt_clear(void)
 {
-    printf("\033[2J");
+    rt_kprintf("\033[2J");
 }
 
 /**
@@ -28,7 +26,17 @@ void vt_clear(void)
  */
 void vt_clear_scrollback(void)
 {
-    printf("\033[3J");
+    rt_kprintf("\033[3J");
+}
+
+/**
+ * @description: Clear line after cursor.
+ * @param void
+ * @return: void
+ */
+void vt_clear_line(void)
+{
+    rt_kprintf("\033[K");
 }
 
 /**
@@ -50,7 +58,7 @@ void vt_clearall(void)
  */
 void vt_clear_attr(void)
 {
-    printf("\033[0m");
+    rt_kprintf("\033[0m");
 }
 
 /**
@@ -58,9 +66,9 @@ void vt_clear_attr(void)
  * @param step Number of steps to move up
  * @return: void
  */
-void vt_move_up(uint16_t step)
+void vt_move_up(rt_uint16_t step)
 {
-    printf("\033[%dA", step);
+    rt_kprintf("\033[%dA", step);
 }
 
 /**
@@ -68,9 +76,9 @@ void vt_move_up(uint16_t step)
  * @param step Number of steps to move down
  * @return: void
  */
-void vt_move_down(uint16_t step)
+void vt_move_down(rt_uint16_t step)
 {
-    printf("\033[%dB", step);
+    rt_kprintf("\033[%dB", step);
 }
 
 /**
@@ -78,9 +86,9 @@ void vt_move_down(uint16_t step)
  * @param step Number of steps to move right
  * @return: void
  */
-void vt_move_right(uint16_t step)
+void vt_move_right(rt_uint16_t step)
 {
-    printf("\033[%dC", step);
+    rt_kprintf("\033[%dC", step);
 }
 
 /**
@@ -88,9 +96,9 @@ void vt_move_right(uint16_t step)
  * @param step Number of steps to move left
  * @return: void
  */
-void vt_move_left(uint16_t step)
+void vt_move_left(rt_uint16_t step)
 {
-    printf("\033[%dD", step);
+    rt_kprintf("\033[%dD", step);
 }
 
 /**
@@ -99,9 +107,9 @@ void vt_move_left(uint16_t step)
  * @param col destination column number, starting from 0
  * @return: void
  */
-void vt_move_to(uint16_t row, uint16_t col)
+void vt_move_to(rt_uint16_t row, rt_uint16_t col)
 {
-    printf("\033[%d;%dH", row + 1, col + 1);
+    rt_kprintf("\033[%d;%dH", row + 1, col + 1);
 }
 
 /**
@@ -111,7 +119,7 @@ void vt_move_to(uint16_t row, uint16_t col)
  */
 void vt_hide_cursor(void)
 {
-    printf("\033[?25l");
+    rt_kprintf("\033[?25l");
 }
 
 /**
@@ -121,7 +129,178 @@ void vt_hide_cursor(void)
  */
 void vt_show_cursor(void)
 {
-    printf("\033[?25h");
+    rt_kprintf("\033[?25h");
+}
+
+/**
+ * @description: Save cursor
+ * @param void
+ * @return: void
+ */
+void vt_store_cursor(void)
+{
+    rt_kprintf("\033[s");
+}
+
+/**
+ * @description: Load cursor
+ * @param void
+ * @return: void
+ */
+void vt_restore_cursor(void)
+{
+    rt_kprintf("\033[u");
+}
+
+/**
+ * @description: Save cursor, use alternate screen buffer, clear screen
+ *               You can use vt_restore_screen() to restore the screen
+ * @param void
+ * @return: void
+ */
+void vt_store_screen(void)
+{
+    rt_kprintf("\033[?1049h");
+}
+
+/**
+ * @description: Use normal screen buffer, restore cursor
+ * @param void
+ * @return: void
+ */
+void vt_restore_screen(void)
+{
+    rt_kprintf("\033[?1049l");
+}
+
+/**
+ * @description: Set the terminal size of the terminal
+ * @param row (unit: size of ONE character)
+ * @param col (unit: size of ONE character)
+ * @return: void
+ */
+void vt_set_terminal_size(rt_uint16_t row, rt_uint16_t col)
+{
+    rt_kprintf("\x1b[8;%d;%dt", row, col);
+}
+
+/**
+ * @description: Set the terminal size as default size (24x80)
+ * @param:  void
+ * @return: void
+ */
+void vt_set_terminal_default_size(void)
+{
+    vt_set_terminal_size(VT_DEFAULT_ROW_SIZE, VT_DEFAULT_COL_SIZE);
+}
+
+/**
+ * @description: Set the terminal position on the screen
+ * @param col_px (unit: pixel on screen)
+ * @param row_px (unit: pixel on screen)
+ * @return: void
+ */
+void vt_set_terminal_position(rt_uint16_t row_px, rt_uint16_t col_px)
+{
+    rt_kprintf("\033[3;%d;%dt", row_px, col_px);
+}
+
+#if RT_VER_NUM >= 0x40004
+#include <stdio.h>
+#include <stdlib.h>
+extern char finsh_getchar(void);
+
+/**
+ * @description: Get the terminal size of the terminal
+ * @param pointers to row & col (unit: size of ONE character)
+ * @return: void
+ */
+void vt_get_terminal_size(rt_uint16_t *row, rt_uint16_t *col)
+{
+#define VT_TIO_BUFLEN 20
+    char vt_tio_buf[VT_TIO_BUFLEN];
+    unsigned char cnt1, cnt2, cnt3, i;
+    char row_s[4], col_s[4];
+    char *p;
+
+    if(rt_thread_self() != rt_thread_find("tshell"))
+    {
+        *col = 0;
+        *row = 0;
+        return;
+    }
+
+    rt_memset(vt_tio_buf, 0, VT_TIO_BUFLEN);
+
+    /* send the command to terminal for getting the window size of the terminal */
+    rt_kprintf("\033[18t");
+
+    /* waiting for the response from the terminal */
+    i = 0;
+    while(i < VT_TIO_BUFLEN)
+    {
+        vt_tio_buf[i] = finsh_getchar();
+        if(vt_tio_buf[i] != 't')
+        {
+            i ++;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    /* interpreting data eg: "\033[8;1;15t" which means row is 1 and col is 15 (unit: size of ONE character)*/
+    rt_memset(row_s,0,4);
+    rt_memset(col_s,0,4);
+    cnt1 = 0;
+    while(vt_tio_buf[cnt1] != ';' && cnt1 < VT_TIO_BUFLEN)
+    {
+        cnt1++;
+    }
+    cnt2 = ++cnt1;
+    while(vt_tio_buf[cnt2] != ';' && cnt2 < VT_TIO_BUFLEN)
+    {
+        cnt2++;
+    }
+    p = row_s;
+    while(cnt1 < cnt2)
+    {
+        *p++ = vt_tio_buf[cnt1++];
+    }
+    p = col_s;
+    cnt2++;
+    cnt3 = rt_strlen(vt_tio_buf) - 1;
+    while(cnt2 < cnt3)
+    {
+        *p++ = vt_tio_buf[cnt2++];
+    }
+
+    /* load the window size date, started from 0 */
+    *col = atoi(col_s) - 1;
+    *row = atoi(row_s) - 1;
+#undef VT_TIO_BUFLEN
+}
+#endif /* RT_VER_NUM >= 0x40004 */
+
+/**
+ * @description: Maximize the window of terminal
+ * @param void
+ * @return: void
+ */
+void vt_maximize_terminal(void)
+{
+    rt_kprintf("\033[9;1t");
+}
+
+/**
+ * @description: Restore the window size of terminal before maximization.
+ * @param void
+ * @return: void
+ */
+void vt_unmaximize_terminal(void)
+{
+    rt_kprintf("\033[9;0t");
 }
 
 /**
@@ -131,7 +310,7 @@ void vt_show_cursor(void)
  */
 void vt_set_font_color(vt_fore_color color)
 {
-    printf("\033[%dm", color);
+    rt_kprintf("\033[%dm", color);
 }
 
 /**
@@ -141,7 +320,7 @@ void vt_set_font_color(vt_fore_color color)
  */
 void vt_set_bg_color(vt_back_color color)
 {
-    printf("\033[%dm", color);
+    rt_kprintf("\033[%dm", color);
 }
 
 /**
@@ -151,7 +330,7 @@ void vt_set_bg_color(vt_back_color color)
  */
 void vt_draw_char(char ch)
 {
-    printf("%c", ch);
+    rt_kprintf("%c", ch);
 }
 
 /**
@@ -161,7 +340,7 @@ void vt_draw_char(char ch)
  */
 void vt_draw_str(char* str)
 {
-    printf("%s", str);
+    rt_kprintf("%s", str);
 }
 
 /**
@@ -171,23 +350,23 @@ void vt_draw_str(char* str)
  * @param ch
  * @return: void
  */
-void vt_draw_char_at(uint16_t row, uint16_t col, char ch)
+void vt_draw_char_at(rt_uint16_t row, rt_uint16_t col, char ch)
 {
     vt_move_to(row, col);
-    printf("%c", ch);
+    rt_kprintf("%c", ch);
 }
 
 /**
- * @description: Draw a string at (row, col)
+ * @description: Draw a string at (row, col), auto linefeed.
  * @param row
  * @param col
- * @param ch
+ * @param str
  * @return: void
  */
-void vt_draw_str_at(uint16_t row, uint16_t col, char* ch)
+void vt_draw_str_at(rt_uint16_t row, rt_uint16_t col, char* str)
 {
     vt_move_to(row, col);
-    printf("%s", ch);
+    rt_kprintf("%s", str);
 }
 
 /**
@@ -198,9 +377,9 @@ void vt_draw_str_at(uint16_t row, uint16_t col, char* ch)
  * @param ch
  * @return: void
  */
-void vt_draw_hline(uint16_t row, uint16_t col, uint16_t len, char ch)
+void vt_draw_hline(rt_uint16_t row, rt_uint16_t col, rt_uint16_t len, char ch)
 {
-    uint16_t i;
+    rt_uint16_t i;
 
     vt_move_to(row, col);
     for(i = col; i < (col + len); i++){
@@ -216,9 +395,9 @@ void vt_draw_hline(uint16_t row, uint16_t col, uint16_t len, char ch)
  * @param ch
  * @return: void
  */
-void vt_draw_vline(uint16_t row, uint16_t col, uint16_t len, char ch)
+void vt_draw_vline(rt_uint16_t row, rt_uint16_t col, rt_uint16_t len, char ch)
 {
-    uint16_t i;
+    rt_uint16_t i;
     for(i = row; i < (row + len); i++){
         vt_draw_char_at(i, col, ch);
     }
@@ -233,10 +412,10 @@ void vt_draw_vline(uint16_t row, uint16_t col, uint16_t len, char ch)
  * @param s_row
  * @return: void
  */
-void vt_fill_box(uint16_t s_row, uint16_t s_col, uint16_t n_rows, uint16_t n_cols, char ch)
+void vt_fill_box(rt_uint16_t s_row, rt_uint16_t s_col, rt_uint16_t n_rows, rt_uint16_t n_cols, char ch)
 {
-    uint16_t row = 0;
-    uint16_t col = 0;
+    rt_uint16_t row = 0;
+    rt_uint16_t col = 0;
     for (row = s_row; row < (s_row + n_rows); row++){
         vt_move_to(row, s_col);
         for (col = s_col; col < (s_col + n_cols); col++){
@@ -249,14 +428,14 @@ void vt_fill_box(uint16_t s_row, uint16_t s_col, uint16_t n_rows, uint16_t n_col
  * @description: Draw a framed box with upper left corner at (row, col) with n_rows and n_cols
  * @param s_row   starting row
  * @param s_col   starting col
- * @param n_rows  width
- * @param n_cols  height
+ * @param n_rows  height
+ * @param n_cols  width
  * @param h_fill  horizontal border
  * @param v_fill  vertical border
  * @param c_fill  corner character
  * @return: void
  */
-void vt_draw_box(uint16_t s_row, uint16_t s_col, uint16_t n_rows, uint16_t n_cols, char h_fill, char v_fill, char c_fill)
+void vt_draw_box(rt_uint16_t s_row, rt_uint16_t s_col, rt_uint16_t n_rows, rt_uint16_t n_cols, char h_fill, char v_fill, char c_fill)
 {
     vt_draw_hline(s_row, s_col, n_cols, h_fill);
     vt_draw_hline(s_row + n_rows - 1, s_col, n_cols, h_fill);
@@ -273,18 +452,18 @@ void vt_draw_box(uint16_t s_row, uint16_t s_col, uint16_t n_rows, uint16_t n_col
  * @description: Draw a bitmap with n_rows and n_cols (bytes)
  * @param  s_row        starting row
  * @param  s_col        starting column
- * @param  n_rows       width
- * @param  n_cols       height
+ * @param  n_rows       height
+ * @param  n_cols       width
  * @param  bitmap
  * @param  color_on     display background
  * @param  color off    non-display background
  * @return: void
  */
-void vt_draw_bitmap(uint16_t s_row, uint16_t s_col, uint16_t n_rows, uint16_t n_cols, const uint8_t* bitmap,
+void vt_draw_bitmap(rt_uint16_t s_row, rt_uint16_t s_col, rt_uint16_t n_rows, rt_uint16_t n_cols, const rt_uint8_t* bitmap,
                     vt_back_color color_on, vt_back_color color_off)
 {
-    uint16_t row = 0;
-    uint16_t col = 0;
+    rt_uint16_t row = 0;
+    rt_uint16_t col = 0;
     for (row = s_row; row < (s_row + n_rows); row++)
     {
         vt_move_to(row, s_col);
@@ -303,36 +482,36 @@ void vt_draw_bitmap(uint16_t s_row, uint16_t s_col, uint16_t n_rows, uint16_t n_
     }
 }
 
-void vt_draw_rgb888_cwh(uint8_t* buffer, uint16_t n_rows, uint16_t n_cols)
+void vt_draw_rgb888_cwh(rt_uint8_t* buffer, rt_uint16_t n_rows, rt_uint16_t n_cols)
 {
-    uint16_t row = 0;
-    uint16_t col = 0;
+    rt_uint16_t row = 0;
+    rt_uint16_t col = 0;
     for (row = 0; row < n_rows; row++)
     {
         for (col = 0; col < n_cols; col++)
         {
-            uint8_t r = buffer[row * n_cols + col];
-            uint8_t g = buffer[n_rows * n_cols + row * n_cols + col];
-            uint8_t b = buffer[n_rows * n_cols * 2 + row * n_cols + col];
-            printf("\x1b[48;2;%d;%d;%dm\x1b[38;2;%d;%d;%dm◾\x1b[39m\x1b[49m", r, g, b, r, g, b);
+            rt_uint8_t r = buffer[row * n_cols + col];
+            rt_uint8_t g = buffer[n_rows * n_cols + row * n_cols + col];
+            rt_uint8_t b = buffer[n_rows * n_cols * 2 + row * n_cols + col];
+            rt_kprintf("\x1b[48;2;%d;%d;%dm\x1b[38;2;%d;%d;%dm◾\x1b[39m\x1b[49m", r, g, b, r, g, b);
         }
-        printf("\n");
+        rt_kprintf("\n");
     }
 }
 
-void vt_draw_rgb888_whc(uint8_t* buffer, uint16_t n_rows, uint16_t n_cols)
+void vt_draw_rgb888_whc(rt_uint8_t* buffer, rt_uint16_t n_rows, rt_uint16_t n_cols)
 {
-    uint16_t row = 0;
-    uint16_t col = 0;
+    rt_uint16_t row = 0;
+    rt_uint16_t col = 0;
     for (row = 0; row < n_rows; row++)
     {
         for (col = 0; col < n_cols; col++)
         {
-            uint8_t r = buffer[row * n_cols * 3 + col * 3];
-            uint8_t g = buffer[row * n_cols * 3 + col * 3 + 1];
-            uint8_t b = buffer[row * n_cols * 3 + col * 3 + 2];
-            printf("\x1b[48;2;%d;%d;%dm\x1b[38;2;%d;%d;%dm◾\x1b[39m\x1b[49m", r, g, b, r, g, b);
+            rt_uint8_t r = buffer[row * n_cols * 3 + col * 3];
+            rt_uint8_t g = buffer[row * n_cols * 3 + col * 3 + 1];
+            rt_uint8_t b = buffer[row * n_cols * 3 + col * 3 + 2];
+            rt_kprintf("\x1b[48;2;%d;%d;%dm\x1b[38;2;%d;%d;%dm◾\x1b[39m\x1b[49m", r, g, b, r, g, b);
         }
-        printf("\n");
+        rt_kprintf("\n");
     }
 }

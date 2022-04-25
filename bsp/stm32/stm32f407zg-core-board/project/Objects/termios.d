@@ -1,0 +1,13 @@
+.\objects\termios.o: ..\..\..\..\components\libc\posix\io\termios\termios.c
+.\objects\termios.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\termios.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\termios.o: ..\..\..\..\components\libc\compilers\common\extension\unistd.h
+.\objects\termios.o: ..\..\..\..\components\libc\compilers\common\extension\sys/unistd.h
+.\objects\termios.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\termios.o: ..\..\..\..\components\libc\compilers\common\extension\sys/types.h
+.\objects\termios.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\termios.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\objects\termios.o: ..\..\..\..\components\libc\compilers\common\extension\sys/errno.h
+.\objects\termios.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\errno.h
+.\objects\termios.o: ..\..\..\..\components\libc\posix\io\termios\termios.h
+.\objects\termios.o: ..\..\..\..\components\libc\compilers\common\sys/ioctl.h

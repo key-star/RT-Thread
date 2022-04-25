@@ -5,24 +5,25 @@
 #ifndef __VI_UTILS_H__
 #define __VI_UTILS_H__
 
+#include <rtthread.h>
 #include <ctype.h>
-#include <errno.h>
 #include <fcntl.h>
 #include <limits.h>
-#include <stdint.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <stdarg.h>
-#include <stddef.h>
+#include <stdio.h>
 #include <string.h>
+#include <strings.h>
 #include <unistd.h>
-#include <dfs_posix.h>
-#include <dfs_poll.h>
+#include <poll.h>
 #include <sys/types.h>
+#include <sys/errno.h>
+#include <sys/stat.h>
 
-#include <mem_sandbox.h>
+#define DBG_TAG "vi"
+#define DBG_LVL DBG_INFO
+#include <rtdbg.h>
 
-#define BB_VER "latest: 2021-06-17"
+#define BB_VER "latest: 2021-08-29"
 #define BB_BT  "Busybox vi for RT-Thread"
 
 //config:config FEATURE_VI_MAX_LEN
@@ -250,20 +251,6 @@
 #define ENABLE_FEATURE_VI_VERBOSE_STATUS 0
 #endif
 
-//config:config FEATURE_VI_REGEX_SEARCH
-//config:   bool "Enable regex in search and replace"
-//config:   default n   # Uses GNU regex, which may be unavailable. FIXME
-//config:   depends on FEATURE_VI_SEARCH
-//config:   help
-//config:     Use extended regex search.
-#ifdef VI_ENABLE_REGEX_SEARCH
-#define ENABLE_FEATURE_VI_REGEX_SEARCH 1
-#define IF_FEATURE_VI_REGEX_SEARCH(...) __VA_ARGS__
-#else
-#define ENABLE_FEATURE_VI_REGEX_SEARCH 0
-#define IF_FEATURE_VI_REGEX_SEARCH(...)
-#endif
-
 //config:config FEATURE_VI_8BIT
 //config:   bool "Allow vi to display 8-bit chars (otherwise shows dots)"
 //config:   default n
@@ -346,15 +333,16 @@ typedef enum {FALSE = 0, TRUE = !FALSE} bool;
 typedef int smallint;
 typedef unsigned smalluint;
 
-#if defined(_MSC_VER) || defined(__CC_ARM) || defined(__ICCARM__)
+#ifndef F_OK
+#define F_OK    0               /* Tests whether the file exists. */
+#define R_OK    4               /* Tests whether the file can be accessed for reading. */
+#define W_OK    2               /* Tests whether the file can be accessed for writing. */
+#define X_OK    1               /* Tests whether the file can be accessed for execution. */
+#endif
+
+#if !defined(__GNUC__)
 #define ALIGN1
 #define barrier()
-#define F_OK    0
-#define R_OK    4
-#define W_OK    2
-#define X_OK    1
-int isblank(int ch);
-int isatty (int  fd);
 #else
 #define ALIGN1 __attribute__((aligned(1)))
 /* At least gcc 3.4.6 on mipsel system needs optimization barrier */
@@ -362,8 +350,6 @@ int isatty (int  fd);
 #endif
 
 #define vi_strtou strtoul
-#define fflush_all() fflush(NULL)
-
 unsigned char vi_mem_init(void);
 void vi_mem_release(void);
 void *vi_malloc(rt_size_t size);
@@ -372,13 +358,12 @@ void vi_free(void *ptr);
 void* vi_zalloc(size_t size);
 char *vi_strdup(const char *s);
 char *vi_strndup(const char *s, size_t n);
-int64_t read_key(int fd, char *buffer, int timeout);
-void *memrchr(const void* ptr, int ch, size_t pos);
-char* xasprintf(const char *format, ...);
+int vi_putchar(int c);
+void vi_puts(const char *s);
+void vi_write(const void *buffer, uint32_t size);
 
-#ifdef VI_ENABLE_SEARCH
-char* strchrnul(const char *s, int c);
-#endif
+int64_t read_key(int fd, char *buffer, int timeout);
+char* xasprintf(const char *format, ...);
 
 #ifdef VI_ENABLE_COLON
 char* last_char_is(const char *s, int c);

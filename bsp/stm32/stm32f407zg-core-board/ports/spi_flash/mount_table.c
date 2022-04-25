@@ -1,6 +1,5 @@
 #include "fal.h"
 #include "dfs_fs.h"
-#include "dfs_posix.h"
 
 #ifdef RT_USING_DFS_MNTTABLE
 const struct dfs_mount_tbl mount_table[] =

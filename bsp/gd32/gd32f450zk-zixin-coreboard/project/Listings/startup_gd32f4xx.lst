@@ -266,418 +266,419 @@ ARM Macro Assembler    Page 5
 
   142 00000184 00000000        DCD              FPU_IRQHandler ; 97:FPU
   143 00000188 00000000        DCD              UART6_IRQHandler ; 98:UART6
-  144 0000018C 00000000        DCD              UART7_IRQHandler ; 98:UART7
+  144 0000018C 00000000        DCD              UART7_IRQHandler ; 99:UART7
   145 00000190 00000000        DCD              SPI3_IRQHandler ; 100:SPI3
   146 00000194 00000000        DCD              SPI4_IRQHandler ; 101:SPI4
   147 00000198 00000000        DCD              SPI5_IRQHandler ; 102:SPI5
-  148 0000019C 00000000        DCD              TLI_IRQHandler ; 104:TLI
-  149 000001A0 00000000        DCD              TLI_ER_IRQHandler 
+  148 0000019C 00000000        DCD              0           ; 103:Reserved
+  149 000001A0 00000000        DCD              TLI_IRQHandler ; 104:TLI
+  150 000001A4 00000000        DCD              TLI_ER_IRQHandler 
                                                             ; 105:TLI Error
-  150 000001A4 00000000        DCD              IPA_IRQHandler ; 106:IPA
-  151 000001A8         
-  152 000001A8         __Vectors_End
-  153 000001A8         
-  154 000001A8 000001A8 
+  151 000001A8 00000000        DCD              IPA_IRQHandler ; 106:IPA
+  152 000001AC         
+  153 000001AC         __Vectors_End
+  154 000001AC         
+  155 000001AC 000001AC 
                        __Vectors_Size
                                EQU              __Vectors_End - __Vectors
-  155 000001A8         
-  156 000001A8                 AREA             |.text|, CODE, READONLY
-  157 00000000         
-  158 00000000         ;/* reset Handler */
-  159 00000000         Reset_Handler
+  156 000001AC         
+  157 000001AC                 AREA             |.text|, CODE, READONLY
+  158 00000000         
+  159 00000000         ;/* reset Handler */
+  160 00000000         Reset_Handler
                                PROC
-  160 00000000                 EXPORT           Reset_Handler                  
+  161 00000000                 EXPORT           Reset_Handler                  
    [WEAK]
-  161 00000000                 IMPORT           SystemInit
-  162 00000000                 IMPORT           __main
-  163 00000000 4806            LDR              R0, =SystemInit
-  164 00000002 4780            BLX              R0
-  165 00000004 4806            LDR              R0, =__main
-  166 00000006 4700            BX               R0
-  167 00000008                 ENDP
-  168 00000008         
-  169 00000008         ;/* dummy Exception Handlers */
-  170 00000008         NMI_Handler
+  162 00000000                 IMPORT           SystemInit
+  163 00000000                 IMPORT           __main
+  164 00000000 4806            LDR              R0, =SystemInit
+  165 00000002 4780            BLX              R0
+  166 00000004 4806            LDR              R0, =__main
+  167 00000006 4700            BX               R0
+  168 00000008                 ENDP
+  169 00000008         
+  170 00000008         ;/* dummy Exception Handlers */
+  171 00000008         NMI_Handler
                                PROC
-  171 00000008                 EXPORT           NMI_Handler                    
+  172 00000008                 EXPORT           NMI_Handler                    
    [WEAK]
-  172 00000008 E7FE            B                .
-  173 0000000A                 ENDP
-  175 0000000A         HardFault_Handler
+  173 00000008 E7FE            B                .
+  174 0000000A                 ENDP
+  176 0000000A         HardFault_Handler
                                PROC
-  176 0000000A                 EXPORT           HardFault_Handler              
+  177 0000000A                 EXPORT           HardFault_Handler              
    [WEAK]
-  177 0000000A E7FE            B                .
-  178 0000000C                 ENDP
-  180 0000000C         MemManage_Handler
+  178 0000000A E7FE            B                .
+  179 0000000C                 ENDP
+  181 0000000C         MemManage_Handler
                                PROC
-  181 0000000C                 EXPORT           MemManage_Handler              
+  182 0000000C                 EXPORT           MemManage_Handler              
    [WEAK]
-  182 0000000C E7FE            B                .
-  183 0000000E                 ENDP
-  185 0000000E         BusFault_Handler
+  183 0000000C E7FE            B                .
+  184 0000000E                 ENDP
+  186 0000000E         BusFault_Handler
                                PROC
-  186 0000000E                 EXPORT           BusFault_Handler               
+  187 0000000E                 EXPORT           BusFault_Handler               
    [WEAK]
-  187 0000000E E7FE            B                .
-  188 00000010                 ENDP
-  190 00000010         UsageFault_Handler
-                               PROC
+  188 0000000E E7FE            B                .
+  189 00000010                 ENDP
+  191 00000010         UsageFault_Handler
 
 
 
 ARM Macro Assembler    Page 6 
 
 
-  191 00000010                 EXPORT           UsageFault_Handler             
-   [WEAK]
-  192 00000010 E7FE            B                .
-  193 00000012                 ENDP
-  194 00000012         SVC_Handler
                                PROC
-  195 00000012                 EXPORT           SVC_Handler                    
+  192 00000010                 EXPORT           UsageFault_Handler             
    [WEAK]
-  196 00000012 E7FE            B                .
-  197 00000014                 ENDP
-  199 00000014         DebugMon_Handler
+  193 00000010 E7FE            B                .
+  194 00000012                 ENDP
+  195 00000012         SVC_Handler
                                PROC
-  200 00000014                 EXPORT           DebugMon_Handler               
+  196 00000012                 EXPORT           SVC_Handler                    
    [WEAK]
-  201 00000014 E7FE            B                .
-  202 00000016                 ENDP
-  204 00000016         PendSV_Handler
+  197 00000012 E7FE            B                .
+  198 00000014                 ENDP
+  200 00000014         DebugMon_Handler
                                PROC
-  205 00000016                 EXPORT           PendSV_Handler                 
+  201 00000014                 EXPORT           DebugMon_Handler               
    [WEAK]
-  206 00000016 E7FE            B                .
-  207 00000018                 ENDP
-  209 00000018         SysTick_Handler
+  202 00000014 E7FE            B                .
+  203 00000016                 ENDP
+  205 00000016         PendSV_Handler
                                PROC
-  210 00000018                 EXPORT           SysTick_Handler                
+  206 00000016                 EXPORT           PendSV_Handler                 
    [WEAK]
-  211 00000018 E7FE            B                .
-  212 0000001A                 ENDP
-  213 0000001A         
-  214 0000001A         Default_Handler
+  207 00000016 E7FE            B                .
+  208 00000018                 ENDP
+  210 00000018         SysTick_Handler
                                PROC
-  215 0000001A         ;               /* external interrupts handler */
-  216 0000001A                 EXPORT           WWDGT_IRQHandler               
+  211 00000018                 EXPORT           SysTick_Handler                
    [WEAK]
-  217 0000001A                 EXPORT           LVD_IRQHandler                 
+  212 00000018 E7FE            B                .
+  213 0000001A                 ENDP
+  214 0000001A         
+  215 0000001A         Default_Handler
+                               PROC
+  216 0000001A         ;               /* external interrupts handler */
+  217 0000001A                 EXPORT           WWDGT_IRQHandler               
    [WEAK]
-  218 0000001A                 EXPORT           TAMPER_STAMP_IRQHandler        
+  218 0000001A                 EXPORT           LVD_IRQHandler                 
    [WEAK]
-  219 0000001A                 EXPORT           RTC_WKUP_IRQHandler            
+  219 0000001A                 EXPORT           TAMPER_STAMP_IRQHandler        
    [WEAK]
-  220 0000001A                 EXPORT           FMC_IRQHandler                 
+  220 0000001A                 EXPORT           RTC_WKUP_IRQHandler            
    [WEAK]
-  221 0000001A                 EXPORT           RCU_CTC_IRQHandler             
+  221 0000001A                 EXPORT           FMC_IRQHandler                 
    [WEAK]
-  222 0000001A                 EXPORT           EXTI0_IRQHandler               
+  222 0000001A                 EXPORT           RCU_CTC_IRQHandler             
    [WEAK]
-  223 0000001A                 EXPORT           EXTI1_IRQHandler               
+  223 0000001A                 EXPORT           EXTI0_IRQHandler               
    [WEAK]
-  224 0000001A                 EXPORT           EXTI2_IRQHandler               
+  224 0000001A                 EXPORT           EXTI1_IRQHandler               
    [WEAK]
-  225 0000001A                 EXPORT           EXTI3_IRQHandler               
+  225 0000001A                 EXPORT           EXTI2_IRQHandler               
    [WEAK]
-  226 0000001A                 EXPORT           EXTI4_IRQHandler               
+  226 0000001A                 EXPORT           EXTI3_IRQHandler               
    [WEAK]
-  227 0000001A                 EXPORT           DMA0_Channel0_IRQHandler       
+  227 0000001A                 EXPORT           EXTI4_IRQHandler               
    [WEAK]
-  228 0000001A                 EXPORT           DMA0_Channel1_IRQHandler       
+  228 0000001A                 EXPORT           DMA0_Channel0_IRQHandler       
    [WEAK]
-  229 0000001A                 EXPORT           DMA0_Channel2_IRQHandler       
+  229 0000001A                 EXPORT           DMA0_Channel1_IRQHandler       
+   [WEAK]
 
 
 
 ARM Macro Assembler    Page 7 
 
 
+  230 0000001A                 EXPORT           DMA0_Channel2_IRQHandler       
    [WEAK]
-  230 0000001A                 EXPORT           DMA0_Channel3_IRQHandler       
+  231 0000001A                 EXPORT           DMA0_Channel3_IRQHandler       
    [WEAK]
-  231 0000001A                 EXPORT           DMA0_Channel4_IRQHandler       
+  232 0000001A                 EXPORT           DMA0_Channel4_IRQHandler       
    [WEAK]
-  232 0000001A                 EXPORT           DMA0_Channel5_IRQHandler       
+  233 0000001A                 EXPORT           DMA0_Channel5_IRQHandler       
    [WEAK]
-  233 0000001A                 EXPORT           DMA0_Channel6_IRQHandler       
+  234 0000001A                 EXPORT           DMA0_Channel6_IRQHandler       
    [WEAK]
-  234 0000001A                 EXPORT           ADC_IRQHandler                 
+  235 0000001A                 EXPORT           ADC_IRQHandler                 
    [WEAK]
-  235 0000001A                 EXPORT           CAN0_TX_IRQHandler             
+  236 0000001A                 EXPORT           CAN0_TX_IRQHandler             
    [WEAK]
-  236 0000001A                 EXPORT           CAN0_RX0_IRQHandler            
+  237 0000001A                 EXPORT           CAN0_RX0_IRQHandler            
    [WEAK]
-  237 0000001A                 EXPORT           CAN0_RX1_IRQHandler            
+  238 0000001A                 EXPORT           CAN0_RX1_IRQHandler            
    [WEAK]
-  238 0000001A                 EXPORT           CAN0_EWMC_IRQHandler           
+  239 0000001A                 EXPORT           CAN0_EWMC_IRQHandler           
    [WEAK]
-  239 0000001A                 EXPORT           EXTI5_9_IRQHandler             
+  240 0000001A                 EXPORT           EXTI5_9_IRQHandler             
    [WEAK]
-  240 0000001A                 EXPORT           TIMER0_BRK_TIMER8_IRQHandler   
+  241 0000001A                 EXPORT           TIMER0_BRK_TIMER8_IRQHandler   
    [WEAK]
-  241 0000001A                 EXPORT           TIMER0_UP_TIMER9_IRQHandler    
+  242 0000001A                 EXPORT           TIMER0_UP_TIMER9_IRQHandler    
    [WEAK]
-  242 0000001A                 EXPORT           TIMER0_TRG_CMT_TIMER10_IRQHandl
+  243 0000001A                 EXPORT           TIMER0_TRG_CMT_TIMER10_IRQHandl
 er [WEAK]
-  243 0000001A                 EXPORT           TIMER0_CC_IRQHandler           
+  244 0000001A                 EXPORT           TIMER0_CC_IRQHandler           
    [WEAK]
-  244 0000001A                 EXPORT           TIMER1_IRQHandler              
+  245 0000001A                 EXPORT           TIMER1_IRQHandler              
    [WEAK]
-  245 0000001A                 EXPORT           TIMER2_IRQHandler              
+  246 0000001A                 EXPORT           TIMER2_IRQHandler              
    [WEAK]
-  246 0000001A                 EXPORT           TIMER3_IRQHandler              
+  247 0000001A                 EXPORT           TIMER3_IRQHandler              
    [WEAK]
-  247 0000001A                 EXPORT           I2C0_EV_IRQHandler             
+  248 0000001A                 EXPORT           I2C0_EV_IRQHandler             
    [WEAK]
-  248 0000001A                 EXPORT           I2C0_ER_IRQHandler             
+  249 0000001A                 EXPORT           I2C0_ER_IRQHandler             
    [WEAK]
-  249 0000001A                 EXPORT           I2C1_EV_IRQHandler             
+  250 0000001A                 EXPORT           I2C1_EV_IRQHandler             
    [WEAK]
-  250 0000001A                 EXPORT           I2C1_ER_IRQHandler             
+  251 0000001A                 EXPORT           I2C1_ER_IRQHandler             
    [WEAK]
-  251 0000001A                 EXPORT           SPI0_IRQHandler                
+  252 0000001A                 EXPORT           SPI0_IRQHandler                
    [WEAK]
-  252 0000001A                 EXPORT           SPI1_IRQHandler                
+  253 0000001A                 EXPORT           SPI1_IRQHandler                
    [WEAK]
-  253 0000001A                 EXPORT           USART0_IRQHandler              
+  254 0000001A                 EXPORT           USART0_IRQHandler              
    [WEAK]
-  254 0000001A                 EXPORT           USART1_IRQHandler              
+  255 0000001A                 EXPORT           USART1_IRQHandler              
    [WEAK]
-  255 0000001A                 EXPORT           USART2_IRQHandler              
+  256 0000001A                 EXPORT           USART2_IRQHandler              
    [WEAK]
-  256 0000001A                 EXPORT           EXTI10_15_IRQHandler           
+  257 0000001A                 EXPORT           EXTI10_15_IRQHandler           
    [WEAK]
-  257 0000001A                 EXPORT           RTC_Alarm_IRQHandler           
+  258 0000001A                 EXPORT           RTC_Alarm_IRQHandler           
    [WEAK]
-  258 0000001A                 EXPORT           USBFS_WKUP_IRQHandler          
-   [WEAK]
+  259 0000001A                 EXPORT           USBFS_WKUP_IRQHandler          
 
 
 
 ARM Macro Assembler    Page 8 
 
 
-  259 0000001A                 EXPORT           TIMER7_BRK_TIMER11_IRQHandler  
    [WEAK]
-  260 0000001A                 EXPORT           TIMER7_UP_TIMER12_IRQHandler   
+  260 0000001A                 EXPORT           TIMER7_BRK_TIMER11_IRQHandler  
    [WEAK]
-  261 0000001A                 EXPORT           TIMER7_TRG_CMT_TIMER13_IRQHandl
+  261 0000001A                 EXPORT           TIMER7_UP_TIMER12_IRQHandler   
+   [WEAK]
+  262 0000001A                 EXPORT           TIMER7_TRG_CMT_TIMER13_IRQHandl
 er [WEAK]
-  262 0000001A                 EXPORT           TIMER7_CC_IRQHandler           
+  263 0000001A                 EXPORT           TIMER7_CC_IRQHandler           
    [WEAK]
-  263 0000001A                 EXPORT           DMA0_Channel7_IRQHandler       
+  264 0000001A                 EXPORT           DMA0_Channel7_IRQHandler       
    [WEAK]
-  264 0000001A                 EXPORT           EXMC_IRQHandler                
+  265 0000001A                 EXPORT           EXMC_IRQHandler                
    [WEAK]
-  265 0000001A                 EXPORT           SDIO_IRQHandler                
+  266 0000001A                 EXPORT           SDIO_IRQHandler                
    [WEAK]
-  266 0000001A                 EXPORT           TIMER4_IRQHandler              
+  267 0000001A                 EXPORT           TIMER4_IRQHandler              
    [WEAK]
-  267 0000001A                 EXPORT           SPI2_IRQHandler                
+  268 0000001A                 EXPORT           SPI2_IRQHandler                
    [WEAK]
-  268 0000001A                 EXPORT           UART3_IRQHandler               
+  269 0000001A                 EXPORT           UART3_IRQHandler               
    [WEAK]
-  269 0000001A                 EXPORT           UART4_IRQHandler               
+  270 0000001A                 EXPORT           UART4_IRQHandler               
    [WEAK]
-  270 0000001A                 EXPORT           TIMER5_DAC_IRQHandler          
+  271 0000001A                 EXPORT           TIMER5_DAC_IRQHandler          
    [WEAK]
-  271 0000001A                 EXPORT           TIMER6_IRQHandler              
+  272 0000001A                 EXPORT           TIMER6_IRQHandler              
    [WEAK]
-  272 0000001A                 EXPORT           DMA1_Channel0_IRQHandler       
+  273 0000001A                 EXPORT           DMA1_Channel0_IRQHandler       
    [WEAK]
-  273 0000001A                 EXPORT           DMA1_Channel1_IRQHandler       
+  274 0000001A                 EXPORT           DMA1_Channel1_IRQHandler       
    [WEAK]
-  274 0000001A                 EXPORT           DMA1_Channel2_IRQHandler       
+  275 0000001A                 EXPORT           DMA1_Channel2_IRQHandler       
    [WEAK]
-  275 0000001A                 EXPORT           DMA1_Channel3_IRQHandler       
+  276 0000001A                 EXPORT           DMA1_Channel3_IRQHandler       
    [WEAK]
-  276 0000001A                 EXPORT           DMA1_Channel4_IRQHandler       
+  277 0000001A                 EXPORT           DMA1_Channel4_IRQHandler       
    [WEAK]
-  277 0000001A                 EXPORT           ENET_IRQHandler                
+  278 0000001A                 EXPORT           ENET_IRQHandler                
    [WEAK]
-  278 0000001A                 EXPORT           ENET_WKUP_IRQHandler           
+  279 0000001A                 EXPORT           ENET_WKUP_IRQHandler           
    [WEAK]
-  279 0000001A                 EXPORT           CAN1_TX_IRQHandler             
+  280 0000001A                 EXPORT           CAN1_TX_IRQHandler             
    [WEAK]
-  280 0000001A                 EXPORT           CAN1_RX0_IRQHandler            
+  281 0000001A                 EXPORT           CAN1_RX0_IRQHandler            
    [WEAK]
-  281 0000001A                 EXPORT           CAN1_RX1_IRQHandler            
+  282 0000001A                 EXPORT           CAN1_RX1_IRQHandler            
    [WEAK]
-  282 0000001A                 EXPORT           CAN1_EWMC_IRQHandler           
+  283 0000001A                 EXPORT           CAN1_EWMC_IRQHandler           
    [WEAK]
-  283 0000001A                 EXPORT           USBFS_IRQHandler               
+  284 0000001A                 EXPORT           USBFS_IRQHandler               
    [WEAK]
-  284 0000001A                 EXPORT           DMA1_Channel5_IRQHandler       
+  285 0000001A                 EXPORT           DMA1_Channel5_IRQHandler       
    [WEAK]
-  285 0000001A                 EXPORT           DMA1_Channel6_IRQHandler       
+  286 0000001A                 EXPORT           DMA1_Channel6_IRQHandler       
    [WEAK]
-  286 0000001A                 EXPORT           DMA1_Channel7_IRQHandler       
+  287 0000001A                 EXPORT           DMA1_Channel7_IRQHandler       
    [WEAK]
-  287 0000001A                 EXPORT           USART5_IRQHandler              
+  288 0000001A                 EXPORT           USART5_IRQHandler              
    [WEAK]
-  288 0000001A                 EXPORT           I2C2_EV_IRQHandler             
 
 
 
 ARM Macro Assembler    Page 9 
 
 
+  289 0000001A                 EXPORT           I2C2_EV_IRQHandler             
    [WEAK]
-  289 0000001A                 EXPORT           I2C2_ER_IRQHandler             
+  290 0000001A                 EXPORT           I2C2_ER_IRQHandler             
    [WEAK]
-  290 0000001A                 EXPORT           USBHS_EP1_Out_IRQHandler       
+  291 0000001A                 EXPORT           USBHS_EP1_Out_IRQHandler       
    [WEAK]
-  291 0000001A                 EXPORT           USBHS_EP1_In_IRQHandler        
+  292 0000001A                 EXPORT           USBHS_EP1_In_IRQHandler        
    [WEAK]
-  292 0000001A                 EXPORT           USBHS_WKUP_IRQHandler          
+  293 0000001A                 EXPORT           USBHS_WKUP_IRQHandler          
    [WEAK]
-  293 0000001A                 EXPORT           USBHS_IRQHandler               
+  294 0000001A                 EXPORT           USBHS_IRQHandler               
    [WEAK]
-  294 0000001A                 EXPORT           DCI_IRQHandler                 
+  295 0000001A                 EXPORT           DCI_IRQHandler                 
    [WEAK]
-  295 0000001A                 EXPORT           TRNG_IRQHandler                
+  296 0000001A                 EXPORT           TRNG_IRQHandler                
    [WEAK]
-  296 0000001A                 EXPORT           FPU_IRQHandler                 
+  297 0000001A                 EXPORT           FPU_IRQHandler                 
    [WEAK]
-  297 0000001A                 EXPORT           UART6_IRQHandler               
+  298 0000001A                 EXPORT           UART6_IRQHandler               
    [WEAK]
-  298 0000001A                 EXPORT           UART7_IRQHandler               
+  299 0000001A                 EXPORT           UART7_IRQHandler               
    [WEAK]
-  299 0000001A                 EXPORT           SPI3_IRQHandler                
+  300 0000001A                 EXPORT           SPI3_IRQHandler                
    [WEAK]
-  300 0000001A                 EXPORT           SPI4_IRQHandler                
+  301 0000001A                 EXPORT           SPI4_IRQHandler                
    [WEAK]
-  301 0000001A                 EXPORT           SPI5_IRQHandler                
+  302 0000001A                 EXPORT           SPI5_IRQHandler                
    [WEAK]
-  302 0000001A                 EXPORT           TLI_IRQHandler                 
+  303 0000001A                 EXPORT           TLI_IRQHandler                 
    [WEAK]
-  303 0000001A                 EXPORT           TLI_ER_IRQHandler              
+  304 0000001A                 EXPORT           TLI_ER_IRQHandler              
    [WEAK]
-  304 0000001A                 EXPORT           IPA_IRQHandler                 
+  305 0000001A                 EXPORT           IPA_IRQHandler                 
    [WEAK]
-  305 0000001A         
-  306 0000001A         ;/* external interrupts handler */
-  307 0000001A         WWDGT_IRQHandler
-  308 0000001A         LVD_IRQHandler
-  309 0000001A         TAMPER_STAMP_IRQHandler
-  310 0000001A         RTC_WKUP_IRQHandler
-  311 0000001A         FMC_IRQHandler
-  312 0000001A         RCU_CTC_IRQHandler
-  313 0000001A         EXTI0_IRQHandler
-  314 0000001A         EXTI1_IRQHandler
-  315 0000001A         EXTI2_IRQHandler
-  316 0000001A         EXTI3_IRQHandler
-  317 0000001A         EXTI4_IRQHandler
-  318 0000001A         DMA0_Channel0_IRQHandler
-  319 0000001A         DMA0_Channel1_IRQHandler
-  320 0000001A         DMA0_Channel2_IRQHandler
-  321 0000001A         DMA0_Channel3_IRQHandler
-  322 0000001A         DMA0_Channel4_IRQHandler
-  323 0000001A         DMA0_Channel5_IRQHandler
-  324 0000001A         DMA0_Channel6_IRQHandler
-  325 0000001A         ADC_IRQHandler
-  326 0000001A         CAN0_TX_IRQHandler
-  327 0000001A         CAN0_RX0_IRQHandler
-  328 0000001A         CAN0_RX1_IRQHandler
-  329 0000001A         CAN0_EWMC_IRQHandler
-  330 0000001A         EXTI5_9_IRQHandler
+  306 0000001A         
+  307 0000001A         ;/* external interrupts handler */
+  308 0000001A         WWDGT_IRQHandler
+  309 0000001A         LVD_IRQHandler
+  310 0000001A         TAMPER_STAMP_IRQHandler
+  311 0000001A         RTC_WKUP_IRQHandler
+  312 0000001A         FMC_IRQHandler
+  313 0000001A         RCU_CTC_IRQHandler
+  314 0000001A         EXTI0_IRQHandler
+  315 0000001A         EXTI1_IRQHandler
+  316 0000001A         EXTI2_IRQHandler
+  317 0000001A         EXTI3_IRQHandler
+  318 0000001A         EXTI4_IRQHandler
+  319 0000001A         DMA0_Channel0_IRQHandler
+  320 0000001A         DMA0_Channel1_IRQHandler
+  321 0000001A         DMA0_Channel2_IRQHandler
+  322 0000001A         DMA0_Channel3_IRQHandler
+  323 0000001A         DMA0_Channel4_IRQHandler
+  324 0000001A         DMA0_Channel5_IRQHandler
+  325 0000001A         DMA0_Channel6_IRQHandler
+  326 0000001A         ADC_IRQHandler
+  327 0000001A         CAN0_TX_IRQHandler
+  328 0000001A         CAN0_RX0_IRQHandler
+  329 0000001A         CAN0_RX1_IRQHandler
+  330 0000001A         CAN0_EWMC_IRQHandler
 
 
 
 ARM Macro Assembler    Page 10 
 
 
-  331 0000001A         TIMER0_BRK_TIMER8_IRQHandler
-  332 0000001A         TIMER0_UP_TIMER9_IRQHandler
-  333 0000001A         TIMER0_TRG_CMT_TIMER10_IRQHandler
-  334 0000001A         TIMER0_CC_IRQHandler
-  335 0000001A         TIMER1_IRQHandler
-  336 0000001A         TIMER2_IRQHandler
-  337 0000001A         TIMER3_IRQHandler
-  338 0000001A         I2C0_EV_IRQHandler
-  339 0000001A         I2C0_ER_IRQHandler
-  340 0000001A         I2C1_EV_IRQHandler
-  341 0000001A         I2C1_ER_IRQHandler
-  342 0000001A         SPI0_IRQHandler
-  343 0000001A         SPI1_IRQHandler
-  344 0000001A         USART0_IRQHandler
-  345 0000001A         USART1_IRQHandler
-  346 0000001A         USART2_IRQHandler
-  347 0000001A         EXTI10_15_IRQHandler
-  348 0000001A         RTC_Alarm_IRQHandler
-  349 0000001A         USBFS_WKUP_IRQHandler
-  350 0000001A         TIMER7_BRK_TIMER11_IRQHandler
-  351 0000001A         TIMER7_UP_TIMER12_IRQHandler
-  352 0000001A         TIMER7_TRG_CMT_TIMER13_IRQHandler
-  353 0000001A         TIMER7_CC_IRQHandler
-  354 0000001A         DMA0_Channel7_IRQHandler
-  355 0000001A         EXMC_IRQHandler
-  356 0000001A         SDIO_IRQHandler
-  357 0000001A         TIMER4_IRQHandler
-  358 0000001A         SPI2_IRQHandler
-  359 0000001A         UART3_IRQHandler
-  360 0000001A         UART4_IRQHandler
-  361 0000001A         TIMER5_DAC_IRQHandler
-  362 0000001A         TIMER6_IRQHandler
-  363 0000001A         DMA1_Channel0_IRQHandler
-  364 0000001A         DMA1_Channel1_IRQHandler
-  365 0000001A         DMA1_Channel2_IRQHandler
-  366 0000001A         DMA1_Channel3_IRQHandler
-  367 0000001A         DMA1_Channel4_IRQHandler
-  368 0000001A         ENET_IRQHandler
-  369 0000001A         ENET_WKUP_IRQHandler
-  370 0000001A         CAN1_TX_IRQHandler
-  371 0000001A         CAN1_RX0_IRQHandler
-  372 0000001A         CAN1_RX1_IRQHandler
-  373 0000001A         CAN1_EWMC_IRQHandler
-  374 0000001A         USBFS_IRQHandler
-  375 0000001A         DMA1_Channel5_IRQHandler
-  376 0000001A         DMA1_Channel6_IRQHandler
-  377 0000001A         DMA1_Channel7_IRQHandler
-  378 0000001A         USART5_IRQHandler
-  379 0000001A         I2C2_EV_IRQHandler
-  380 0000001A         I2C2_ER_IRQHandler
-  381 0000001A         USBHS_EP1_Out_IRQHandler
-  382 0000001A         USBHS_EP1_In_IRQHandler
-  383 0000001A         USBHS_WKUP_IRQHandler
-  384 0000001A         USBHS_IRQHandler
-  385 0000001A         DCI_IRQHandler
-  386 0000001A         TRNG_IRQHandler
-  387 0000001A         FPU_IRQHandler
-  388 0000001A         UART6_IRQHandler
-  389 0000001A         UART7_IRQHandler
+  331 0000001A         EXTI5_9_IRQHandler
+  332 0000001A         TIMER0_BRK_TIMER8_IRQHandler
+  333 0000001A         TIMER0_UP_TIMER9_IRQHandler
+  334 0000001A         TIMER0_TRG_CMT_TIMER10_IRQHandler
+  335 0000001A         TIMER0_CC_IRQHandler
+  336 0000001A         TIMER1_IRQHandler
+  337 0000001A         TIMER2_IRQHandler
+  338 0000001A         TIMER3_IRQHandler
+  339 0000001A         I2C0_EV_IRQHandler
+  340 0000001A         I2C0_ER_IRQHandler
+  341 0000001A         I2C1_EV_IRQHandler
+  342 0000001A         I2C1_ER_IRQHandler
+  343 0000001A         SPI0_IRQHandler
+  344 0000001A         SPI1_IRQHandler
+  345 0000001A         USART0_IRQHandler
+  346 0000001A         USART1_IRQHandler
+  347 0000001A         USART2_IRQHandler
+  348 0000001A         EXTI10_15_IRQHandler
+  349 0000001A         RTC_Alarm_IRQHandler
+  350 0000001A         USBFS_WKUP_IRQHandler
+  351 0000001A         TIMER7_BRK_TIMER11_IRQHandler
+  352 0000001A         TIMER7_UP_TIMER12_IRQHandler
+  353 0000001A         TIMER7_TRG_CMT_TIMER13_IRQHandler
+  354 0000001A         TIMER7_CC_IRQHandler
+  355 0000001A         DMA0_Channel7_IRQHandler
+  356 0000001A         EXMC_IRQHandler
+  357 0000001A         SDIO_IRQHandler
+  358 0000001A         TIMER4_IRQHandler
+  359 0000001A         SPI2_IRQHandler
+  360 0000001A         UART3_IRQHandler
+  361 0000001A         UART4_IRQHandler
+  362 0000001A         TIMER5_DAC_IRQHandler
+  363 0000001A         TIMER6_IRQHandler
+  364 0000001A         DMA1_Channel0_IRQHandler
+  365 0000001A         DMA1_Channel1_IRQHandler
+  366 0000001A         DMA1_Channel2_IRQHandler
+  367 0000001A         DMA1_Channel3_IRQHandler
+  368 0000001A         DMA1_Channel4_IRQHandler
+  369 0000001A         ENET_IRQHandler
+  370 0000001A         ENET_WKUP_IRQHandler
+  371 0000001A         CAN1_TX_IRQHandler
+  372 0000001A         CAN1_RX0_IRQHandler
+  373 0000001A         CAN1_RX1_IRQHandler
+  374 0000001A         CAN1_EWMC_IRQHandler
+  375 0000001A         USBFS_IRQHandler
+  376 0000001A         DMA1_Channel5_IRQHandler
+  377 0000001A         DMA1_Channel6_IRQHandler
+  378 0000001A         DMA1_Channel7_IRQHandler
+  379 0000001A         USART5_IRQHandler
+  380 0000001A         I2C2_EV_IRQHandler
+  381 0000001A         I2C2_ER_IRQHandler
+  382 0000001A         USBHS_EP1_Out_IRQHandler
+  383 0000001A         USBHS_EP1_In_IRQHandler
+  384 0000001A         USBHS_WKUP_IRQHandler
+  385 0000001A         USBHS_IRQHandler
+  386 0000001A         DCI_IRQHandler
+  387 0000001A         TRNG_IRQHandler
+  388 0000001A         FPU_IRQHandler
+  389 0000001A         UART6_IRQHandler
 
 
 
 ARM Macro Assembler    Page 11 
 
 
-  390 0000001A         SPI3_IRQHandler
-  391 0000001A         SPI4_IRQHandler
-  392 0000001A         SPI5_IRQHandler
-  393 0000001A         TLI_IRQHandler
-  394 0000001A         TLI_ER_IRQHandler
-  395 0000001A         IPA_IRQHandler
-  396 0000001A         
-  397 0000001A E7FE            B                .
-  398 0000001C                 ENDP
-  399 0000001C         
-  400 0000001C                 ALIGN
-  401 0000001C         
-  402 0000001C         ; user Initial Stack & Heap
-  403 0000001C         
-  404 0000001C                 IF               :DEF:__MICROLIB
-  405 0000001C         
-  406 0000001C                 EXPORT           __initial_sp
-  407 0000001C                 EXPORT           __heap_base
-  408 0000001C                 EXPORT           __heap_limit
-  409 0000001C         
-  410 0000001C                 ELSE
-  425                          ENDIF
-  426 0000001C         
-  427 0000001C                 END
+  390 0000001A         UART7_IRQHandler
+  391 0000001A         SPI3_IRQHandler
+  392 0000001A         SPI4_IRQHandler
+  393 0000001A         SPI5_IRQHandler
+  394 0000001A         TLI_IRQHandler
+  395 0000001A         TLI_ER_IRQHandler
+  396 0000001A         IPA_IRQHandler
+  397 0000001A         
+  398 0000001A E7FE            B                .
+  399 0000001C                 ENDP
+  400 0000001C         
+  401 0000001C                 ALIGN
+  402 0000001C         
+  403 0000001C         ; user Initial Stack & Heap
+  404 0000001C         
+  405 0000001C                 IF               :DEF:__MICROLIB
+  406 0000001C         
+  407 0000001C                 EXPORT           __initial_sp
+  408 0000001C                 EXPORT           __heap_base
+  409 0000001C                 EXPORT           __heap_limit
+  410 0000001C         
+  411 0000001C                 ELSE
+  426                          ENDIF
+  427 0000001C         
+  428 0000001C                 END
               00000000 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
@@ -720,7 +721,7 @@ ource\ARM\startup_gd32f4xx.s
    Uses
       At line 43 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 406 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 407 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 3 symbols
@@ -755,7 +756,7 @@ Symbol: __heap_base
       At line 30 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
    Uses
-      At line 407 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 408 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 Comment: __heap_base used once
 __heap_limit 00000400
@@ -765,7 +766,7 @@ Symbol: __heap_limit
       At line 32 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
    Uses
-      At line 408 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 409 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 Comment: __heap_limit used once
 4 symbols
@@ -793,19 +794,19 @@ ource\ARM\startup_gd32f4xx.s
    Uses
       At line 39 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 154 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 155 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
-__Vectors_End 000001A8
+__Vectors_End 000001AC
 
 Symbol: __Vectors_End
    Definitions
-      At line 152 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 153 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 40 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 154 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 155 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 3 symbols
@@ -819,7 +820,7 @@ Relocatable symbols
 
 Symbol: .text
    Definitions
-      At line 156 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 157 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       None
@@ -828,48 +829,48 @@ ADC_IRQHandler 0000001A
 
 Symbol: ADC_IRQHandler
    Definitions
-      At line 325 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 326 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 79 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 234 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 235 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 BusFault_Handler 0000000E
 
 Symbol: BusFault_Handler
    Definitions
-      At line 185 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 186 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 48 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 186 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 187 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 CAN0_EWMC_IRQHandler 0000001A
 
 Symbol: CAN0_EWMC_IRQHandler
    Definitions
-      At line 329 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 330 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 83 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 238 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 239 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 CAN0_RX0_IRQHandler 0000001A
 
 Symbol: CAN0_RX0_IRQHandler
    Definitions
-      At line 327 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 328 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 81 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 236 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 237 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 CAN0_RX1_IRQHandler 0000001A
@@ -882,60 +883,60 @@ Relocatable symbols
 
 Symbol: CAN0_RX1_IRQHandler
    Definitions
-      At line 328 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 329 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 82 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 237 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 238 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 CAN0_TX_IRQHandler 0000001A
 
 Symbol: CAN0_TX_IRQHandler
    Definitions
-      At line 326 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 327 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 80 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 235 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 236 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 CAN1_EWMC_IRQHandler 0000001A
 
 Symbol: CAN1_EWMC_IRQHandler
    Definitions
-      At line 373 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 374 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 127 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 282 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 283 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 CAN1_RX0_IRQHandler 0000001A
 
 Symbol: CAN1_RX0_IRQHandler
    Definitions
-      At line 371 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 372 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 125 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 280 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 281 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 CAN1_RX1_IRQHandler 0000001A
 
 Symbol: CAN1_RX1_IRQHandler
    Definitions
-      At line 372 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 373 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 126 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 281 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 282 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 CAN1_TX_IRQHandler 0000001A
@@ -948,60 +949,60 @@ Relocatable symbols
 
 Symbol: CAN1_TX_IRQHandler
    Definitions
-      At line 370 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 371 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 124 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 279 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 280 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DCI_IRQHandler 0000001A
 
 Symbol: DCI_IRQHandler
    Definitions
-      At line 385 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 386 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 139 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 294 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 295 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA0_Channel0_IRQHandler 0000001A
 
 Symbol: DMA0_Channel0_IRQHandler
    Definitions
-      At line 318 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 319 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 72 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 227 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 228 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA0_Channel1_IRQHandler 0000001A
 
 Symbol: DMA0_Channel1_IRQHandler
    Definitions
-      At line 319 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 320 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 73 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 228 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 229 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA0_Channel2_IRQHandler 0000001A
 
 Symbol: DMA0_Channel2_IRQHandler
    Definitions
-      At line 320 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 321 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 74 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 229 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 230 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 
@@ -1014,60 +1015,60 @@ DMA0_Channel3_IRQHandler 0000001A
 
 Symbol: DMA0_Channel3_IRQHandler
    Definitions
-      At line 321 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 322 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 75 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 230 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 231 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA0_Channel4_IRQHandler 0000001A
 
 Symbol: DMA0_Channel4_IRQHandler
    Definitions
-      At line 322 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 323 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 76 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 231 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 232 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA0_Channel5_IRQHandler 0000001A
 
 Symbol: DMA0_Channel5_IRQHandler
    Definitions
-      At line 323 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 324 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 77 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 232 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 233 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA0_Channel6_IRQHandler 0000001A
 
 Symbol: DMA0_Channel6_IRQHandler
    Definitions
-      At line 324 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 325 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 78 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 233 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 234 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA0_Channel7_IRQHandler 0000001A
 
 Symbol: DMA0_Channel7_IRQHandler
    Definitions
-      At line 354 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 355 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 108 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 263 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 264 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 
@@ -1080,60 +1081,60 @@ DMA1_Channel0_IRQHandler 0000001A
 
 Symbol: DMA1_Channel0_IRQHandler
    Definitions
-      At line 363 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 364 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 117 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 272 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 273 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA1_Channel1_IRQHandler 0000001A
 
 Symbol: DMA1_Channel1_IRQHandler
    Definitions
-      At line 364 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 365 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 118 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 273 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 274 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA1_Channel2_IRQHandler 0000001A
 
 Symbol: DMA1_Channel2_IRQHandler
    Definitions
-      At line 365 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 366 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 119 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 274 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 275 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA1_Channel3_IRQHandler 0000001A
 
 Symbol: DMA1_Channel3_IRQHandler
    Definitions
-      At line 366 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 367 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 120 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 275 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 276 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA1_Channel4_IRQHandler 0000001A
 
 Symbol: DMA1_Channel4_IRQHandler
    Definitions
-      At line 367 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 368 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 121 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 276 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 277 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 
 
 
@@ -1146,55 +1147,55 @@ DMA1_Channel5_IRQHandler 0000001A
 
 Symbol: DMA1_Channel5_IRQHandler
    Definitions
-      At line 375 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 376 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 129 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 284 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 285 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA1_Channel6_IRQHandler 0000001A
 
 Symbol: DMA1_Channel6_IRQHandler
    Definitions
-      At line 376 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 377 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 130 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 285 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 286 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DMA1_Channel7_IRQHandler 0000001A
 
 Symbol: DMA1_Channel7_IRQHandler
    Definitions
-      At line 377 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 378 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 131 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 286 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 287 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 DebugMon_Handler 00000014
 
 Symbol: DebugMon_Handler
    Definitions
-      At line 199 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 200 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 55 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 200 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 201 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 Default_Handler 0000001A
 
 Symbol: Default_Handler
    Definitions
-      At line 214 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 215 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       None
@@ -1209,60 +1210,60 @@ ENET_IRQHandler 0000001A
 
 Symbol: ENET_IRQHandler
    Definitions
-      At line 368 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 369 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 122 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 277 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 278 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 ENET_WKUP_IRQHandler 0000001A
 
 Symbol: ENET_WKUP_IRQHandler
    Definitions
-      At line 369 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 370 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 123 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 278 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 279 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 EXMC_IRQHandler 0000001A
 
 Symbol: EXMC_IRQHandler
    Definitions
-      At line 355 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 356 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 109 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 264 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 265 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 EXTI0_IRQHandler 0000001A
 
 Symbol: EXTI0_IRQHandler
    Definitions
-      At line 313 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 314 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 67 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 222 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 223 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 EXTI10_15_IRQHandler 0000001A
 
 Symbol: EXTI10_15_IRQHandler
    Definitions
-      At line 347 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 348 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 101 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 256 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 257 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 
@@ -1275,60 +1276,60 @@ EXTI1_IRQHandler 0000001A
 
 Symbol: EXTI1_IRQHandler
    Definitions
-      At line 314 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 315 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 68 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 223 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 224 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 EXTI2_IRQHandler 0000001A
 
 Symbol: EXTI2_IRQHandler
    Definitions
-      At line 315 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 316 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 69 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 224 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 225 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 EXTI3_IRQHandler 0000001A
 
 Symbol: EXTI3_IRQHandler
    Definitions
-      At line 316 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 317 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 70 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 225 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 226 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 EXTI4_IRQHandler 0000001A
 
 Symbol: EXTI4_IRQHandler
    Definitions
-      At line 317 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 318 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 71 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 226 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 227 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 EXTI5_9_IRQHandler 0000001A
 
 Symbol: EXTI5_9_IRQHandler
    Definitions
-      At line 330 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 331 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 84 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 239 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 240 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 
 
 
@@ -1341,55 +1342,55 @@ FMC_IRQHandler 0000001A
 
 Symbol: FMC_IRQHandler
    Definitions
-      At line 311 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 312 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 65 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 220 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 221 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 FPU_IRQHandler 0000001A
 
 Symbol: FPU_IRQHandler
    Definitions
-      At line 387 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 388 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 142 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 296 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 297 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 HardFault_Handler 0000000A
 
 Symbol: HardFault_Handler
    Definitions
-      At line 175 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 176 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 46 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 176 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 177 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 I2C0_ER_IRQHandler 0000001A
 
 Symbol: I2C0_ER_IRQHandler
    Definitions
-      At line 339 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 340 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 93 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 248 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 249 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 I2C0_EV_IRQHandler 0000001A
 
 Symbol: I2C0_EV_IRQHandler
    Definitions
-      At line 338 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 339 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 92 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
@@ -1400,65 +1401,65 @@ ource\ARM\startup_gd32f4xx.s
 ARM Macro Assembler    Page 10 Alphabetic symbol ordering
 Relocatable symbols
 
-      At line 247 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 248 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 I2C1_ER_IRQHandler 0000001A
 
 Symbol: I2C1_ER_IRQHandler
    Definitions
-      At line 341 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 342 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 95 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 250 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 251 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 I2C1_EV_IRQHandler 0000001A
 
 Symbol: I2C1_EV_IRQHandler
    Definitions
-      At line 340 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 341 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 94 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 249 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 250 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 I2C2_ER_IRQHandler 0000001A
 
 Symbol: I2C2_ER_IRQHandler
    Definitions
-      At line 380 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 381 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 134 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 289 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 290 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 I2C2_EV_IRQHandler 0000001A
 
 Symbol: I2C2_EV_IRQHandler
    Definitions
-      At line 379 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 380 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 133 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 288 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 289 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 IPA_IRQHandler 0000001A
 
 Symbol: IPA_IRQHandler
    Definitions
-      At line 395 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 396 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
-      At line 150 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 151 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 
 
 
@@ -1466,62 +1467,62 @@ ARM Macro Assembler    Page 11 Alphabetic symbol ordering
 Relocatable symbols
 
 Source\ARM\startup_gd32f4xx.s
-      At line 304 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 305 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 LVD_IRQHandler 0000001A
 
 Symbol: LVD_IRQHandler
    Definitions
-      At line 308 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 309 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 62 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 217 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 218 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 MemManage_Handler 0000000C
 
 Symbol: MemManage_Handler
    Definitions
-      At line 180 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 181 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 47 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 181 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 182 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 NMI_Handler 00000008
 
 Symbol: NMI_Handler
    Definitions
-      At line 170 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 171 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 45 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 171 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 172 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 PendSV_Handler 00000016
 
 Symbol: PendSV_Handler
    Definitions
-      At line 204 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 205 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 57 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 205 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 206 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 RCU_CTC_IRQHandler 0000001A
 
 Symbol: RCU_CTC_IRQHandler
    Definitions
-      At line 312 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 313 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
 
@@ -1532,62 +1533,62 @@ Relocatable symbols
 
       At line 66 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 221 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 222 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 RTC_Alarm_IRQHandler 0000001A
 
 Symbol: RTC_Alarm_IRQHandler
    Definitions
-      At line 348 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 349 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 102 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 257 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 258 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 RTC_WKUP_IRQHandler 0000001A
 
 Symbol: RTC_WKUP_IRQHandler
    Definitions
-      At line 310 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 311 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 64 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 219 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 220 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 Reset_Handler 00000000
 
 Symbol: Reset_Handler
    Definitions
-      At line 159 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 160 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 44 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 160 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 161 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 SDIO_IRQHandler 0000001A
 
 Symbol: SDIO_IRQHandler
    Definitions
-      At line 356 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 357 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 110 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 265 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 266 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 SPI0_IRQHandler 0000001A
 
 Symbol: SPI0_IRQHandler
    Definitions
-      At line 342 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 343 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 
@@ -1598,62 +1599,62 @@ Relocatable symbols
    Uses
       At line 96 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 251 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 252 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 SPI1_IRQHandler 0000001A
 
 Symbol: SPI1_IRQHandler
    Definitions
-      At line 343 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 344 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 97 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 252 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 253 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 SPI2_IRQHandler 0000001A
 
 Symbol: SPI2_IRQHandler
    Definitions
-      At line 358 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 359 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 112 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 267 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 268 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 SPI3_IRQHandler 0000001A
 
 Symbol: SPI3_IRQHandler
    Definitions
-      At line 390 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 391 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 145 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 299 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 300 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 SPI4_IRQHandler 0000001A
 
 Symbol: SPI4_IRQHandler
    Definitions
-      At line 391 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 392 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 146 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 300 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 301 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 SPI5_IRQHandler 0000001A
 
 Symbol: SPI5_IRQHandler
    Definitions
-      At line 392 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 393 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 
 
 
@@ -1664,55 +1665,55 @@ Source\ARM\startup_gd32f4xx.s
    Uses
       At line 147 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 301 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 302 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 SVC_Handler 00000012
 
 Symbol: SVC_Handler
    Definitions
-      At line 194 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 195 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 54 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 195 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 196 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 SysTick_Handler 00000018
 
 Symbol: SysTick_Handler
    Definitions
-      At line 209 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 210 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 58 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 210 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 211 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TAMPER_STAMP_IRQHandler 0000001A
 
 Symbol: TAMPER_STAMP_IRQHandler
    Definitions
-      At line 309 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 310 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 63 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 218 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 219 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER0_BRK_TIMER8_IRQHandler 0000001A
 
 Symbol: TIMER0_BRK_TIMER8_IRQHandler
    Definitions
-      At line 331 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 332 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 85 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 240 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 241 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER0_CC_IRQHandler 0000001A
@@ -1725,60 +1726,60 @@ Symbol: TIMER0_CC_IRQHandler
 ARM Macro Assembler    Page 15 Alphabetic symbol ordering
 Relocatable symbols
 
-      At line 334 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 335 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 88 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 243 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 244 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER0_TRG_CMT_TIMER10_IRQHandler 0000001A
 
 Symbol: TIMER0_TRG_CMT_TIMER10_IRQHandler
    Definitions
-      At line 333 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 334 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 87 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 242 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 243 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER0_UP_TIMER9_IRQHandler 0000001A
 
 Symbol: TIMER0_UP_TIMER9_IRQHandler
    Definitions
-      At line 332 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 333 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 86 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 241 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 242 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER1_IRQHandler 0000001A
 
 Symbol: TIMER1_IRQHandler
    Definitions
-      At line 335 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 336 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 89 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 244 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 245 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER2_IRQHandler 0000001A
 
 Symbol: TIMER2_IRQHandler
    Definitions
-      At line 336 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 337 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 90 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 245 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 246 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER3_IRQHandler 0000001A
@@ -1791,60 +1792,60 @@ ARM Macro Assembler    Page 16 Alphabetic symbol ordering
 Relocatable symbols
 
    Definitions
-      At line 337 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 338 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 91 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 246 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 247 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER4_IRQHandler 0000001A
 
 Symbol: TIMER4_IRQHandler
    Definitions
-      At line 357 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 358 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 111 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 266 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 267 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER5_DAC_IRQHandler 0000001A
 
 Symbol: TIMER5_DAC_IRQHandler
    Definitions
-      At line 361 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 362 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 115 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 270 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 271 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER6_IRQHandler 0000001A
 
 Symbol: TIMER6_IRQHandler
    Definitions
-      At line 362 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 363 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 116 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 271 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 272 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER7_BRK_TIMER11_IRQHandler 0000001A
 
 Symbol: TIMER7_BRK_TIMER11_IRQHandler
    Definitions
-      At line 350 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 351 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 104 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 259 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 260 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER7_CC_IRQHandler 0000001A
@@ -1857,41 +1858,53 @@ Relocatable symbols
 
 Symbol: TIMER7_CC_IRQHandler
    Definitions
-      At line 353 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 354 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 107 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 262 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 263 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER7_TRG_CMT_TIMER13_IRQHandler 0000001A
 
 Symbol: TIMER7_TRG_CMT_TIMER13_IRQHandler
    Definitions
-      At line 352 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 353 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 106 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 261 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 262 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TIMER7_UP_TIMER12_IRQHandler 0000001A
 
 Symbol: TIMER7_UP_TIMER12_IRQHandler
    Definitions
-      At line 351 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 352 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 105 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 260 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 261 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TLI_ER_IRQHandler 0000001A
 
 Symbol: TLI_ER_IRQHandler
+   Definitions
+      At line 395 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+Source\ARM\startup_gd32f4xx.s
+   Uses
+      At line 150 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+Source\ARM\startup_gd32f4xx.s
+      At line 304 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+Source\ARM\startup_gd32f4xx.s
+
+TLI_IRQHandler 0000001A
+
+Symbol: TLI_IRQHandler
    Definitions
       At line 394 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
@@ -1899,18 +1912,6 @@ Source\ARM\startup_gd32f4xx.s
       At line 149 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
       At line 303 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
-Source\ARM\startup_gd32f4xx.s
-
-TLI_IRQHandler 0000001A
-
-Symbol: TLI_IRQHandler
-   Definitions
-      At line 393 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
-Source\ARM\startup_gd32f4xx.s
-   Uses
-      At line 148 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
-Source\ARM\startup_gd32f4xx.s
-      At line 302 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 TRNG_IRQHandler 0000001A
@@ -1923,60 +1924,60 @@ Relocatable symbols
 
 Symbol: TRNG_IRQHandler
    Definitions
-      At line 386 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 387 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 141 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 295 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 296 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 UART3_IRQHandler 0000001A
 
 Symbol: UART3_IRQHandler
    Definitions
-      At line 359 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 360 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 113 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 268 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 269 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 UART4_IRQHandler 0000001A
 
 Symbol: UART4_IRQHandler
    Definitions
-      At line 360 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 361 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 114 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 269 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 270 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 UART6_IRQHandler 0000001A
 
 Symbol: UART6_IRQHandler
    Definitions
-      At line 388 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 389 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 143 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 297 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 298 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 UART7_IRQHandler 0000001A
 
 Symbol: UART7_IRQHandler
    Definitions
-      At line 389 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 390 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 144 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 298 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 299 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 
@@ -1989,60 +1990,60 @@ USART0_IRQHandler 0000001A
 
 Symbol: USART0_IRQHandler
    Definitions
-      At line 344 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 345 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 98 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 253 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 254 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 USART1_IRQHandler 0000001A
 
 Symbol: USART1_IRQHandler
    Definitions
-      At line 345 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 346 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 99 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 254 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 255 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 USART2_IRQHandler 0000001A
 
 Symbol: USART2_IRQHandler
    Definitions
-      At line 346 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 347 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 100 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 255 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 256 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 USART5_IRQHandler 0000001A
 
 Symbol: USART5_IRQHandler
    Definitions
-      At line 378 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 379 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 132 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 287 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 288 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 USBFS_IRQHandler 0000001A
 
 Symbol: USBFS_IRQHandler
    Definitions
-      At line 374 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 375 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 128 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 283 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 284 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 
@@ -2055,60 +2056,60 @@ USBFS_WKUP_IRQHandler 0000001A
 
 Symbol: USBFS_WKUP_IRQHandler
    Definitions
-      At line 349 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 350 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 103 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 258 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 259 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 USBHS_EP1_In_IRQHandler 0000001A
 
 Symbol: USBHS_EP1_In_IRQHandler
    Definitions
-      At line 382 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 383 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 136 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 291 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 292 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 USBHS_EP1_Out_IRQHandler 0000001A
 
 Symbol: USBHS_EP1_Out_IRQHandler
    Definitions
-      At line 381 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 382 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 135 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 290 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 291 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 USBHS_IRQHandler 0000001A
 
 Symbol: USBHS_IRQHandler
    Definitions
-      At line 384 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 385 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 138 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 293 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 294 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 USBHS_WKUP_IRQHandler 0000001A
 
 Symbol: USBHS_WKUP_IRQHandler
    Definitions
-      At line 383 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 384 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 137 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
-      At line 292 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 293 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 
 
 
@@ -2121,24 +2122,24 @@ UsageFault_Handler 00000010
 
 Symbol: UsageFault_Handler
    Definitions
-      At line 190 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 191 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 49 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 191 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 192 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 WWDGT_IRQHandler 0000001A
 
 Symbol: WWDGT_IRQHandler
    Definitions
-      At line 307 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 308 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 61 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
-      At line 216 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 217 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 
 101 symbols
@@ -2168,11 +2169,11 @@ ource\ARM\startup_gd32f4xx.s
       At line 19 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
 ource\ARM\startup_gd32f4xx.s
 Comment: Stack_Size used once
-__Vectors_Size 000001A8
+__Vectors_Size 000001AC
 
 Symbol: __Vectors_Size
    Definitions
-      At line 154 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 155 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
       At line 41 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\S
@@ -2189,20 +2190,20 @@ SystemInit 00000000
 
 Symbol: SystemInit
    Definitions
-      At line 161 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 162 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
-      At line 163 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 164 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 Comment: SystemInit used once
 __main 00000000
 
 Symbol: __main
    Definitions
-      At line 162 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 163 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
    Uses
-      At line 165 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
+      At line 166 in file ..\..\libraries\GD32F4xx_Libraries\CMSIS\GD\GD32F4xx\
 Source\ARM\startup_gd32f4xx.s
 Comment: __main used once
 2 symbols

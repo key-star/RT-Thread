@@ -22,6 +22,7 @@
  *      INCLUDES
  *********************/
 #include "lv_desktop.h"
+#include <msh.h>
 
 /**********************
  *  STATIC VARIABLES

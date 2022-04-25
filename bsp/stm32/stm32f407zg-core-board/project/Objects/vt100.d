@@ -1,6 +1,13 @@
 .\objects\vt100.o: ..\..\..\..\components\vt100\src\vt100.c
+.\objects\vt100.o: ..\..\..\..\kernel\include\rtthread.h
+.\objects\vt100.o: ..\board\rtconfig.h
+.\objects\vt100.o: ..\..\..\..\kernel\include\rtdebug.h
+.\objects\vt100.o: ..\..\..\..\kernel\include\rtdef.h
+.\objects\vt100.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\vt100.o: ..\..\..\..\kernel\include\rtservice.h
+.\objects\vt100.o: ..\..\..\..\kernel\include\rtm.h
+.\objects\vt100.o: ..\..\..\..\kernel\include\rtthread.h
+.\objects\vt100.o: ..\..\..\..\components\finsh\finsh.h
+.\objects\vt100.o: ..\..\..\..\components\vt100\src\vt100.h
 .\objects\vt100.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\vt100.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\vt100.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
-.\objects\vt100.o: ..\..\..\..\components\vt100\src\vt100.h
-.\objects\vt100.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

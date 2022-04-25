@@ -2,7 +2,8 @@
 #include "rtdevice.h"
 #include "board.h"
 #include "fal.h"
-#include "dfs_posix.h"
+#include <unistd.h>
+#include <dfs_file.h>
 
 #define FS_PARTITION_NAME  "filesystem"
 #define BUF_SIZE 1024

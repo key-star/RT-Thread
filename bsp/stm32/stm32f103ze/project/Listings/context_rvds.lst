@@ -5,7 +5,7 @@ ARM Macro Assembler    Page 1
 
 
     1 00000000         ;/*
-    2 00000000         ; * Copyright (c) 2006-2018, RT-Thread Development Team
+    2 00000000         ; * Copyright (c) 2006-2022, RT-Thread Development Team
     3 00000000         ; *
     4 00000000         ; * SPDX-License-Identifier: Apache-2.0
     5 00000000         ; *

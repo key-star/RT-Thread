@@ -3,12 +3,8 @@
  */
 
 #include "vi_utils.h"
+#include <mem_sandbox.h>
 
-#define DBG_TAG "vi"
-#define DBG_LVL DBG_INFO
-#include <rtdbg.h>
-
-#include <rtconfig.h>
 #ifndef VI_SANDBOX_SIZE_KB
 #define VI_SANDBOX_SIZE_KB   20 /* KB */
 #endif
@@ -45,29 +41,6 @@ char* last_char_is(const char *s, int c)
         s++;
     return (*s == (char)c) ? (char *) s : NULL;
 }
-#endif
-
-#if defined(_MSC_VER) || defined(__CC_ARM) || defined(__ICCARM__)
-void *memrchr(const void* ptr, int ch, size_t pos)
-{
-    char *end = (char *)ptr+pos-1;
-    while (end != ptr)
-    {
-        if (*end == ch)
-            return end;
-        end--;
-    }
-    return (*end == ch)?(end):(NULL);
-}
-
-#ifndef __ICCARM__
-int isblank(int ch)
-{
-    if (ch == ' ' || ch == '\t')
-        return 1;
-    return 0;
-}
-#endif
 #endif
 
 #ifdef VI_ENABLE_SETOPTS
@@ -218,7 +191,7 @@ int safe_poll(struct pollfd *ufds, nfds_t nfds, int timeout)
         /* I doubt many callers would handle this correctly! */
         if (errno == ENOMEM)
             continue;
-        printf("poll");
+        LOG_E("safe_poll");
         return n;
     }
 }
@@ -306,6 +279,22 @@ char *vi_strndup(const char *s, size_t n)
         return RT_NULL;
     }
     return p;
+}
+
+int vi_putchar(int c)
+{
+    rt_kprintf("%c", c);
+    return (int)c;
+}
+
+void vi_puts(const char *s)
+{
+    rt_kprintf(s);
+}
+
+void vi_write(const void *buffer, uint32_t size)
+{
+    rt_device_write(rt_console_get_device(), 0, buffer, size);
 }
 
 int64_t read_key(int fd, char *buffer, int timeout)
@@ -570,14 +559,14 @@ int64_t read_key(int fd, char *buffer, int timeout)
     goto start_over;
 }
 
-static int vasprintf(char **string_ptr, const char *format, va_list p)
+static int vi_vasprintf(char **string_ptr, const char *format, va_list p)
 {
     int r;
     va_list p2;
     char buf[128];
 
     va_copy(p2, p);
-    r = vsnprintf(buf, 128, format, p);
+    r = rt_vsnprintf(buf, 128, format, p);
     va_end(p);
 
     /* Note: can't use xstrdup/xmalloc, they call vasprintf (us) on failure! */
@@ -589,14 +578,14 @@ static int vasprintf(char **string_ptr, const char *format, va_list p)
     }
 
     *string_ptr = vi_malloc(r+1);
-    r = (*string_ptr ? vsnprintf(*string_ptr, r+1, format, p2) : -1);
+    r = (*string_ptr ? rt_vsnprintf(*string_ptr, r+1, format, p2) : -1);
     va_end(p2);
 
     return r;
 }
 
 // Die with an error message if we can't malloc() enough space and do an
-// sprintf() into that space.
+// rt_sprintf() into that space.
 char* xasprintf(const char *format, ...)
 {
     va_list p;
@@ -604,10 +593,10 @@ char* xasprintf(const char *format, ...)
     char *string_ptr;
 
     va_start(p, format);
-    r = vasprintf(&string_ptr, format, p);
+    r = vi_vasprintf(&string_ptr, format, p);
     va_end(p);
     if (r < 0)
-        printf("die_memory_exhausted"); //bb_die_memory_exhausted();
+        LOG_E("die_memory_exhausted");
     return string_ptr;
 }
 
@@ -645,19 +634,9 @@ int get_terminal_width_height(int fd, unsigned *width, unsigned *height)
 {
     struct winsize win;
     int err;
-    int close_me = -1;
 
     if (fd == -1) {
-        if (isatty(STDOUT_FILENO))
-            fd = STDOUT_FILENO;
-        else
-        if (isatty(STDERR_FILENO))
-            fd = STDERR_FILENO;
-        else
-        if (isatty(STDIN_FILENO))
-            fd = STDIN_FILENO;
-        else
-            close_me = fd = open("/dev/tty", O_RDONLY);
+        fd = STDOUT_FILENO;
     }
 
     win.ws_row = 0;
@@ -669,9 +648,6 @@ int get_terminal_width_height(int fd, unsigned *width, unsigned *height)
         *height = wh_helper(win.ws_row, 24, "LINES", &err);
     if (width)
         *width = wh_helper(win.ws_col, 80, "COLUMNS", &err);
-
-    if (close_me >= 0)
-        close(close_me);
 
     return err;
 }
@@ -686,7 +662,7 @@ static int get_termios_and_make_raw(int fd, struct termios *newterm, struct term
 //TODO: slattach, shell read might be adapted to use this too: grep for "tcsetattr", "[VTIME] = 0"
     int r;
 
-    memset(oldterm, 0, sizeof(*oldterm)); /* paranoia */
+    rt_memset(oldterm, 0, sizeof(*oldterm)); /* paranoia */
     r = tcgetattr(fd, oldterm);
     *newterm = *oldterm;
 
@@ -758,12 +734,3 @@ int set_termios_to_raw(int fd, struct termios *oldterm, int flags)
 }
 
 #endif /* RT_USING_POSIX_TERMIOS */
-
-#if defined(VI_ENABLE_SEARCH) && !defined(__GNUC__)
-char* strchrnul(const char *s, int c)
-{
-    while (*s != '\0' && *s != c)
-        s++;
-    return (char*)s;
-}
-#endif

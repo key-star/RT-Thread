@@ -15,7 +15,6 @@
 #include <netdb.h>
 //#include <cJSON.h>
 #include <finsh.h>
-#include "dfs_posix.h"
 
 #define GET_URL_LEN_MAX         256         //网址最大长度
 #define GET_URI                 "https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5"

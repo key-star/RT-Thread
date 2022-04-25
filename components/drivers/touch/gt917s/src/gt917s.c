@@ -13,6 +13,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 #define DBG_TAG "gt917s"
 #define DBG_LVL DBG_INFO

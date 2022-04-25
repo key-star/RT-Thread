@@ -1,21 +1,7 @@
 /*
- * File      : at_socket_mw31.c
- * This file is part of RT-Thread RTOS
- * COPYRIGHT (C) 2006 - 2018, RT-Thread Development Team
+ * Copyright (c) 2006-2022, RT-Thread Development Team
  *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License along
- *  with this program; if not, write to the Free Software Foundation, Inc.,
- *  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ * SPDX-License-Identifier: Apache-2.0
  *
  * Change Logs:
  * Date           Author       Notes
@@ -235,7 +221,7 @@ static int mw31_socket_send(struct at_socket *socket, const char *buff, size_t b
             cur_pkt_size = MW31_MODULE_SEND_MAX_SIZE;
         }
 
-        sprintf(send_buf, "AT+CIPSEND=%d,%d", device_socket, cur_pkt_size);
+        rt_sprintf(send_buf, "AT+CIPSEND=%d,%d", device_socket, cur_pkt_size);
         /* send the "AT+CIPSEND" commands to AT server than receive the '>' response on the first line */
         at_client_obj_send(device->client, send_buf, strlen(send_buf));
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2018, RT-Thread Development Team
+ * Copyright (c) 2006-2022, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -18,6 +18,7 @@
 #define __WEBCLIENT_H__
 
 #include <rtthread.h>
+#include <stddef.h>
 
 #if defined(WEBCLIENT_USING_MBED_TLS) || defined(WEBCLIENT_USING_SAL_TLS)
 #include <tls_client.h>
@@ -47,8 +48,8 @@ extern "C" {
 #define web_strdup                     rt_strdup
 #endif
 
-#define WEBCLIENT_SW_VERSION           "2.2.0"
-#define WEBCLIENT_SW_VERSION_NUM       0x20200
+#define WEBCLIENT_SW_VERSION           "2.3.0"
+#define WEBCLIENT_SW_VERSION_NUM       0x20300
 
 #define WEBCLIENT_HEADER_BUFSZ         4096
 #define WEBCLIENT_RESPONSE_BUFSZ       4096

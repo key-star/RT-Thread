@@ -1,7 +1,11 @@
 /*
+ * Copyright (c) 2021, Meco Jianting Man <jiantingman@foxmail.com>
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * Change Logs:
  * Date           Author       Notes
- * 2018-11-06     Meco Man     port to RT-Thread
+ * 2021-04-14     Meco Man     port to RT-Thread
  */
 
 /*
@@ -39,6 +43,7 @@
  * memory management pages of https://www.FreeRTOS.org for more information.
  */
 
+#include <rtthread.h>
 #include "mem_sandbox.h"
 
 #define portBYTE_ALIGNMENT          RT_ALIGN_SIZE
@@ -461,7 +466,7 @@ char *mem_sandbox_strdup(mem_sandbox_t p_sandbox, const char *s)
     return tmp;
 }
 
-char *mem_sandbox_strndup(mem_sandbox_t p_sandbox, const char *s, size_t n)
+char *mem_sandbox_strndup(mem_sandbox_t p_sandbox, const char *s, rt_size_t n)
 {
     char* new = mem_sandbox_malloc(p_sandbox, n+1);
     if (new)

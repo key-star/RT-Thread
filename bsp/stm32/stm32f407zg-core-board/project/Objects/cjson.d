@@ -6,5 +6,14 @@
 .\objects\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
 .\objects\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
 .\objects\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+.\objects\cjson.o: ..\..\..\..\kernel\include\rtthread.h
+.\objects\cjson.o: ..\board\rtconfig.h
+.\objects\cjson.o: ..\..\..\..\kernel\include\rtdebug.h
+.\objects\cjson.o: ..\..\..\..\kernel\include\rtdef.h
+.\objects\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\cjson.o: ..\..\..\..\kernel\include\rtservice.h
+.\objects\cjson.o: ..\..\..\..\kernel\include\rtm.h
+.\objects\cjson.o: ..\..\..\..\kernel\include\rtthread.h
+.\objects\cjson.o: ..\..\..\..\components\finsh\finsh.h
 .\objects\cjson.o: ..\..\..\..\components\cJSON\cJSON.h
 .\objects\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

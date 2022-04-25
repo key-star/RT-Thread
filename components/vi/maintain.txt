@@ -1,3 +1,0 @@
-维护注意事项:
-原vi.c文件中的 strtoul strdup strndup malloc realloc free zalloc需要加vi_前缀.
-optind变量需要改为options.optind

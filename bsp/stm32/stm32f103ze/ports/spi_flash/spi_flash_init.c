@@ -26,6 +26,6 @@ static int rt_hw_spi_flash_init(void)
 
     return RT_EOK;
 }
-INIT_COMPONENT_EXPORT(rt_hw_spi_flash_init);
+INIT_DEVICE_EXPORT(rt_hw_spi_flash_init);
 #endif
 

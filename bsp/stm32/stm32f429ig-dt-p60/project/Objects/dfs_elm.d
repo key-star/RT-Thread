@@ -34,8 +34,12 @@
 .\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\ipc/pipe.h
 .\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
 .\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
 .\objects\dfs_elm.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h

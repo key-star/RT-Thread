@@ -20,5 +20,6 @@
 .\objects\syscalls.o: ..\..\..\..\components\libc\compilers\common\extension\sys/stat.h
 .\objects\syscalls.o: ..\..\..\..\components\libc\compilers\common\sys/time.h
 .\objects\syscalls.o: ..\..\..\..\components\libc\compilers\common\compiler_private.h
+.\objects\syscalls.o: ..\..\..\..\components\libc\posix\io\stdio\libc.h
 .\objects\syscalls.o: ..\..\..\..\kernel\include\rtdbg.h
 .\objects\syscalls.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

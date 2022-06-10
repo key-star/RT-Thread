@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2018, RT-Thread Development Team
+ * Copyright (c) 2006-2021, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -26,6 +26,6 @@ static int rt_hw_spi_flash_init(void)
 
     return RT_EOK;
 }
-INIT_COMPONENT_EXPORT(rt_hw_spi_flash_init);
+INIT_DEVICE_EXPORT(rt_hw_spi_flash_init);
 #endif
 

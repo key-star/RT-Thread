@@ -31,8 +31,12 @@
 .\objects\block_dev.o: ..\..\..\..\components\drivers\include\ipc/pipe.h
 .\objects\block_dev.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\block_dev.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\block_dev.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\block_dev.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\block_dev.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\block_dev.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\block_dev.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\block_dev.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\block_dev.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
 .\objects\block_dev.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
 .\objects\block_dev.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h

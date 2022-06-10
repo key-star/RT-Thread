@@ -29,4 +29,4 @@ int enc28j60_init(void)
 
     return 0;
 }
-INIT_COMPONENT_EXPORT(enc28j60_init);
+INIT_DEVICE_EXPORT(enc28j60_init);

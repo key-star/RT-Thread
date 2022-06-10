@@ -19,6 +19,11 @@
     ],
     "files.associations": {
         "stdio.h": "c",
-        "rtthread.h": "c"
+        "rtthread.h": "c",
+        "drv_log.h": "c",
+        "touch.h": "c",
+        "rtdevice.h": "c",
+        "lv_port_fs.h": "c",
+        "littlevgl2rtt.h": "c"
     }
 }

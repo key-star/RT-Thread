@@ -17,9 +17,13 @@
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\ipc/pipe.h
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\ringbuffer.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
 .\objects\ringbuffer.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h

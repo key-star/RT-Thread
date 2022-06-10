@@ -17,9 +17,13 @@
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\ipc/pipe.h
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\dataqueue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
 .\objects\dataqueue.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h

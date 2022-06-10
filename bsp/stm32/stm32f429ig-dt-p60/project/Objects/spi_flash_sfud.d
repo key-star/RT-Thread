@@ -19,9 +19,13 @@
 .\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\ipc/pipe.h
 .\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\spi_flash_sfud.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
 .\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
 .\objects\spi_flash_sfud.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h

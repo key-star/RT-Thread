@@ -44,11 +44,11 @@ typedef struct
 #define SSD_VER_RESOLUTION		LV_VER_RES		//LCD垂直分辨率
 //LCD驱动参数设置
 #define SSD_HOR_PULSE_WIDTH		1		//水平脉宽
-#define SSD_HOR_BACK_PORCH		46		//水平前廊
-#define SSD_HOR_FRONT_PORCH		210		//水平后廊
+#define SSD_HOR_BACK_PORCH		46		//水平后廊
+#define SSD_HOR_FRONT_PORCH		210		//水平前廊
 
 #define SSD_VER_PULSE_WIDTH		1		//垂直脉宽
-#define SSD_VER_BACK_PORCH		23		//垂直前廊
+#define SSD_VER_BACK_PORCH		23		//垂直后廊
 #define SSD_VER_FRONT_PORCH		22		//垂直前廊
 //如下几个参数，自动计算
 #define SSD_HT	(SSD_HOR_RESOLUTION+SSD_HOR_BACK_PORCH+SSD_HOR_FRONT_PORCH)

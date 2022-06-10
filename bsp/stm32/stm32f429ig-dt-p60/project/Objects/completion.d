@@ -18,9 +18,13 @@
 .\objects\completion.o: ..\..\..\..\components\drivers\include\ipc/pipe.h
 .\objects\completion.o: ..\..\..\..\components\drivers\include\ipc/poll.h
 .\objects\completion.o: ..\..\..\..\components\drivers\include\ipc/ringblk_buf.h
+.\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/rtc.h
 .\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/spi.h
 .\objects\completion.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/serial.h
+.\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/i2c.h
+.\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/i2c_dev.h
+.\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/i2c-bit-ops.h
 .\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_core.h
 .\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_host.h
 .\objects\completion.o: ..\..\..\..\components\drivers\include\drivers/mmcsd_card.h

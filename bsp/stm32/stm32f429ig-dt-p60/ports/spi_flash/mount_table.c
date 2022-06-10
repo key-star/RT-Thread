@@ -93,6 +93,7 @@ int elmfat_mount(void)
         closedir(dirp);
     }
 	
+	rt_thread_mdelay(100);
 	/* mount elmfat file system to sdcard */
 	if(dfs_mount("sd0", "/sdcard", "elm", 0, 0) == 0)
 	{

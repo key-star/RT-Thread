@@ -10,7 +10,11 @@
 
 #include <rtthread.h>
 #include "gt917s.h"
+#ifdef LITTLEVGL2RTT_USING_DEMO
 #include "littlevgl2rtt.h"
+#else
+#include "lv_port_indev.h"
+#endif
 
 #define THREAD_PRIORITY   25
 #define THREAD_STACK_SIZE 1024
@@ -44,7 +48,13 @@ static void gt917s_entry(void *parameter)
 				    read_data[i].x_coordinate = 799 - read_data[i].y_coordinate;
 				    read_data[i].y_coordinate = temp;
 				}
+                #ifdef LITTLEVGL2RTT_USING_DEMO
+                /* Adapt to lvgl v7 */
 				littlevgl2rtt_send_input_event(read_data[i].x_coordinate, read_data[i].y_coordinate, read_data[i].event);
+                #else
+                /* Adapt to lvgl v8 */
+                touch_to_lvgl_input_event(read_data[i].x_coordinate, read_data[i].y_coordinate, read_data[i].event);
+                #endif
                 if (read_data[i].event == RT_TOUCH_EVENT_DOWN || read_data[i].event == RT_TOUCH_EVENT_MOVE)
                 {
                     // rt_kprintf("%d %d %d %d %d\n", read_data[i].track_id,

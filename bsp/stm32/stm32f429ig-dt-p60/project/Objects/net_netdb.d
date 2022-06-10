@@ -1,0 +1,17 @@
+.\objects\net_netdb.o: ..\..\..\..\components\net\sal\socket\net_netdb.c
+.\objects\net_netdb.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\net_netdb.o: ..\..\..\..\kernel\include\rtthread.h
+.\objects\net_netdb.o: ..\board\rtconfig.h
+.\objects\net_netdb.o: ..\..\..\..\kernel\include\rtdebug.h
+.\objects\net_netdb.o: ..\..\..\..\kernel\include\rtdef.h
+.\objects\net_netdb.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\net_netdb.o: ..\..\..\..\kernel\include\rtservice.h
+.\objects\net_netdb.o: ..\..\..\..\kernel\include\rtm.h
+.\objects\net_netdb.o: ..\..\..\..\kernel\include\rtthread.h
+.\objects\net_netdb.o: ..\..\..\..\components\finsh\finsh.h
+.\objects\net_netdb.o: ..\..\..\..\components\net\sal\include\socket\netdb.h
+.\objects\net_netdb.o: ..\..\..\..\components\net\sal\include\sal_netdb.h
+.\objects\net_netdb.o: ..\..\..\..\components\net\sal\include\sal_socket.h
+.\objects\net_netdb.o: ..\..\..\..\components\net\netdev\include\arpa/inet.h
+.\objects\net_netdb.o: ..\..\..\..\components\net\netdev\include\netdev_ipaddr.h
+.\objects\net_netdb.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
